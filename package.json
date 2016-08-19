@@ -1,0 +1,39 @@
+{
+  "name": "harkerbarkerwedding",
+  "version": "1.0.0",
+  "description": "Wedding website for the Harker Barker wedding",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeaSeaLancs/harkerbarkerwedding.git"
+  },
+  "author": "Matt Harker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TeaSeaLancs/harkerbarkerwedding/issues"
+  },
+  "homepage": "https://github.com/TeaSeaLancs/harkerbarkerwedding#readme",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-1": "^6.13.0",
+    "babel-register": "^6.11.6",
+    "koa": "^1.2.1",
+    "koa-ejs": "^3.0.0",
+    "koa-router": "^5.4.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2"
+  },
+  "devDependencies": {
+    "babel-preset-react": "^6.11.1"
+  }
+}

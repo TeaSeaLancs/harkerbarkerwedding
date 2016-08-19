@@ -1,0 +1,11 @@
+{
+    "language": {
+        "jsx": {
+            "linting.prefer": ["ESLint"]
+        },
+        "javascript": {
+            "linting.prefer": ["ESLint"],
+            "linting.usePreferredOnly": true
+        }
+    }
+}
