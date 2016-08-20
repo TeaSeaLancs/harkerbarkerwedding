@@ -2,22 +2,25 @@ const ReactDOMServer = require('react-dom/server');
 const ReactRouter = require('react-router');
 
 const serverRender = require('./util/serverRender');
-const routes = require('./util/routes');
+const routes = require('./util/routes').routes;
+const html = require('./util/html');
 
-function* render() {
-    let reactString;
-    ReactRouter.match({routes: routes.routes, location: this.url}, 
-          (error, redirectLocation, renderProps) => {
-            if (error) {
-                this.throw(error.message, 500);
-            } else if (redirectLocation) {
-                this.redirect(redirectLocation.pathname + redirectLocation.search);
-            } else if (renderProps) {
-                reactString = ReactDOMServer.renderToString(serverRender(renderProps));
-            }
-        });
+const match = data => new Promise(resolve => {
+   return ReactRouter.match(data, (error, redirectLocation, renderProps) => resolve([error, redirectLocation, renderProps]));
+});
+
+function* render(next) {
+    const [error, redirectLocation, renderProps] = yield match({routes, location: this.url});
     
-    yield this.render('layout', {react: reactString});
+    if (error) {
+        this.throw(error.message, 500);
+    } else if (redirectLocation) {
+        this.redirect(redirectLocation.pathname + redirectLocation.search);
+    } else if (renderProps) {
+        this.body = html(ReactDOMServer.renderToString(serverRender(renderProps)));
+    } else {
+        yield next;
+    }
 }
 
 module.exports = render;
