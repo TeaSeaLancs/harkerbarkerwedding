@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { loadInvitees } from '../actions/invitees';
+
 class Dashboard extends Component {
+    static needs() {
+        return [loadInvitees];
+    }
     render() {
         return (
             <div>
