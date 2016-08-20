@@ -1,4 +1,4 @@
-module.exports = (name, body) => `
+module.exports = (name, body, state) => `
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +9,9 @@ module.exports = (name, body) => `
 ${body}
         </div>
 
+        <script>
+            window.__PRELOADED__STATE__ = ${JSON.stringify(state)};
+        </script>
         <script src="/${name}.js"></script>
     </body>
 </html>
