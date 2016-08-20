@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router'
 
-import Dashboard from '../components/dashboard';
+import Dashboard from './components/dashboard';
 
 const routes = (
     <Route path="/" component={Dashboard}></Route>
 )
 
-export { routes };
+export default routes;

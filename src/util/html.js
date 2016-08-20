@@ -1,4 +1,4 @@
-module.exports = body => `
+module.exports = (name, body) => `
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +9,7 @@ module.exports = body => `
 ${body}
         </div>
 
-        <script src="bundle.js"></script>
+        <script src="/${name}.js"></script>
     </body>
 </html>
 `;

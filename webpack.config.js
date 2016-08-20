@@ -6,10 +6,12 @@ const PATHS = {
 };
 
 module.exports = {
-    entry: path.join(PATHS.src, 'main.jsx'),
+    entry: {
+        admin: path.join(PATHS.src, 'admin', 'browser.jsx')
+    },
 	output: {
 		path: PATHS.build,
-		filename: 'bundle.js'
+		filename: '[name].js'
 	},
     resolve: {
         extensions: ["", ".jsx", ".js"]

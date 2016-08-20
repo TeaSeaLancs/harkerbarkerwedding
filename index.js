@@ -5,10 +5,10 @@ require('babel-register')({
 const http = require('http');
 
 const app = require('koa')();
-
 const serve = require('koa-static');
-const render = require('./src/render');
-app.use(render);
-app.use(serve('bin'));
+
+const admin = require('./src/admin/');
+//app.use(serve('bin'));
+app.use(admin);
 
 http.createServer(app.callback()).listen(8080);
