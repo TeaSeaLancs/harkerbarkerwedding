@@ -1,4 +1,6 @@
-export default (store, components) => {
+import React from 'react';
+
+const loadComponentNeeds = (store, components) => {
     if (!Array.isArray(components)) {
         components = [components];
     }
@@ -9,4 +11,15 @@ export default (store, components) => {
     }, []);
     
     return Promise.all(needs.map(need => store.dispatch(need())));
+}
+
+export default loadComponentNeeds;
+
+export function createAndLoadFor(store) {
+    return (Component, props) => {
+        if (Component.needs) {
+            loadComponentNeeds(store, Component);
+        }
+        return <Component {...props} />
+    }
 }
