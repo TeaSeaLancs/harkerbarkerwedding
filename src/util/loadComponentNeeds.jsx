@@ -6,7 +6,9 @@ const loadComponentNeeds = (store, components) => {
     }
     
     const needs = components.reduce((allNeeds, component) => {
-        allNeeds.push.apply(allNeeds, (component.needs && component.needs()) || []);
+        if (component) {
+            allNeeds.push.apply(allNeeds, (component.needs && component.needs()) || []);
+        }
         return allNeeds;
     }, []);
     

@@ -13,6 +13,9 @@ module.exports = {
         node: true,
         es6: true
     },
+    globals: {
+        fetch: true
+    },
     plugins: ["react", "import"],
     "rules": {
         "react/jsx-uses-react": "error",

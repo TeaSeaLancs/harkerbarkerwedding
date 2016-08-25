@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { loadInvitees } from '../actions/invitees';
+import { loadInviteesIfRequired } from '../actions/invitees';
 
 class Dashboard extends Component {
     static needs() {
-        return [loadInvitees];
+        return [loadInviteesIfRequired];
     }
     render() {
         return (
