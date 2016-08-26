@@ -23,7 +23,9 @@ module.exports = (name, routes, reducers) => {
             this.redirect(redirectLocation.pathname + redirectLocation.search);
         } else if (renderProps) {
             const store = createStore(reducer, {});
-            yield loadComponentNeeds(store, renderProps.components);
+            console.log("Loading needs, state: ", store.getState());
+            yield loadComponentNeeds(store, renderProps.components, renderProps.params);
+            console.log("Needs loaded, state: ", store.getState());
             const body = ReactDOMServer.renderToString(serverRender(store, renderProps));
             this.body = html(name, body, store.getState());
         } else if (next) {

@@ -1,12 +1,14 @@
 const initialState = {
-    list: []
+    list: [],
+    loaded: false
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'LOAD_INVITEES':
+        case 'LOADED_INVITEES':
             return Object.assign({}, state, {
-                list: action.invitees
+                list: action.invitees,
+                loaded: true
             })
         default:
             return state;

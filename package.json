@@ -25,6 +25,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-1": "^6.13.0",
     "babel-register": "^6.11.6",
+    "isomorphic-fetch": "^2.2.1",
     "koa": "^1.2.1",
     "koa-compose": "^2.4.0",
     "koa-router": "^5.4.0",

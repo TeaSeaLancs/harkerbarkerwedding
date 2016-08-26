@@ -12,6 +12,7 @@ class Dashboard extends Component {
             <div>
                 <div>Dashboard</div>
                 <div>Invitees: {this.props.invitees.length}</div>
+                <div>Loaded: {this.props.loaded.toString()}</div>
             </div>
         )
     }
@@ -19,7 +20,8 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => {
     return {
-        invitees: state.invitees.list
+        invitees: state.invitees.list,
+        loaded: state.invitees.loaded
     };
 }
 

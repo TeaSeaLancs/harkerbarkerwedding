@@ -7,4 +7,4 @@ const reducers = require('./reducers/app').default;
 const api = require('./api/');
 
 const render = Render('admin', routes, reducers);
-module.exports = subdomain('admin', compose([api.routes(), render]));
+module.exports = compose([api.routes(), subdomain('admin', render)]);

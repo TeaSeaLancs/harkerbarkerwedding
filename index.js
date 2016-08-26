@@ -2,6 +2,8 @@ require('babel-register')({
     extensions: ['.jsx']
 });
 
+require('isomorphic-fetch');
+
 const http = require('http');
 const app = require('koa')();
 const serve = require('koa-static');
