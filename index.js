@@ -1,12 +1,7 @@
 require('babel-register')({
     extensions: ['.jsx']
 });
-require('css-modules-require-hook')({
-    extensions: ['.css'],
-    devMode: true
-});
-
-require('isomorphic-fetch');
+require('./src/util/css');
 
 const http = require('http');
 const app = require('koa')();

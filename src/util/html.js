@@ -1,8 +1,11 @@
+const css = require('./css');
+
 module.exports = (name, body, state) => `
 <!DOCTYPE html>
 <html>
     <head>
         <title>koa ejs</title>
+        <style type="text/css">${css.join("\n\n")}</style>
     </head>
     <body>
         <div id="react-main">

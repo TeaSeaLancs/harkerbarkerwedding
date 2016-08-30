@@ -29,7 +29,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.css$/,
-				loaders: ['style', 'css?url=false'],
+				loaders: ['style', 'css?modules&url=false&localIdentName=[name]__[local]___[hash:base64:5]'],
 				include: PATHS.src
 			},
 			{
