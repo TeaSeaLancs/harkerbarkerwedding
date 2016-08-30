@@ -3,15 +3,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
 import { combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import reducers from './reducers/app';
 import createStore from '../util/createStore';
-import routes from './routes';
+import getRoutes from './routes';
 import { createAndLoadFor } from '../util/loadComponentNeeds';
 
 const preloadedState = window.__PRELOADED__STATE__;
@@ -22,7 +30,9 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 const app = (
     <Provider store={store}>
-        <Router history={history} routes={routes} createElement={createAndLoadFor(store)} />
+        <MuiThemeProvider>
+            <Router history={history} routes={getRoutes(store)} createElement={createAndLoadFor(store)} />
+        </MuiThemeProvider>
     </Provider>
 );
 

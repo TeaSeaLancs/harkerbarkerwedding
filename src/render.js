@@ -12,8 +12,10 @@ const match = data => new Promise(resolve => {
    return ReactRouter.match(data, (error, redirectLocation, renderProps) => resolve([error, redirectLocation, renderProps]));
 });
 
-module.exports = (name, routes, reducers) => {
+module.exports = (name, getRoutes, reducers) => {
     const reducer = combineReducers(reducers);
+    const store = createStore(reducer, {});
+    const routes = getRoutes(store);
     
     return function* render(next) {
         const [error, redirectLocation, renderProps] = yield match({routes, location: this.url});
@@ -22,11 +24,9 @@ module.exports = (name, routes, reducers) => {
         } else if (redirectLocation) {
             this.redirect(redirectLocation.pathname + redirectLocation.search);
         } else if (renderProps) {
-            const store = createStore(reducer, {});
-            console.log("Loading needs, state: ", store.getState());
+            const userAgent = this.request.header['user-agent'];
             yield loadComponentNeeds(store, renderProps.components, renderProps.params);
-            console.log("Needs loaded, state: ", store.getState());
-            const body = ReactDOMServer.renderToString(serverRender(store, renderProps));
+            const body = ReactDOMServer.renderToString(serverRender(store, renderProps, userAgent));
             this.body = html(name, body, store.getState());
         } else if (next) {
             yield next;

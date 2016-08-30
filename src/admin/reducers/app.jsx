@@ -1,3 +1,4 @@
 import invitees from './invitees';
+import user from './user';
 
-export default {invitees};
+export default {invitees, user};
