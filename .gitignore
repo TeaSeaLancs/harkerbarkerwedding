@@ -39,3 +39,5 @@ jspm_packages
 bin
 
 .DS_store
+
+dev.config

@@ -7,5 +7,5 @@ export default url => {
         return window.location + url;
     }
     
-    return `http://localhost:9000/${url}`;
+    return `${process.env.ADMIN_URL}/${url}`;
 }

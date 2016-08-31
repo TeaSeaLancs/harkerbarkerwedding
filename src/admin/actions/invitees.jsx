@@ -1,4 +1,4 @@
-import url from '../../util/url';
+import url from '../util/url';
 
 const loadingInvitees = () => {
     return {
