@@ -4,8 +4,8 @@
 
 export default url => {
     if (typeof window !== 'undefined') {
-        return window.location + url;
+        return `${window.location.origin}${url}`;
     }
     
-    return `${process.env.ADMIN_URL}/${url}`;
+    return `${process.env.ADMIN_URL}${url}`;
 }

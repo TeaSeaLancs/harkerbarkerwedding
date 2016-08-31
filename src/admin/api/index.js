@@ -3,5 +3,6 @@ const router = require('koa-router')({
 });
 
 require('./invites')(router);
+require('./auth')(router);
 
 module.exports = router;

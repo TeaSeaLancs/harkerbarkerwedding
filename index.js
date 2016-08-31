@@ -7,11 +7,12 @@ const http = require('http');
 const app = require('koa')();
 const serve = require('koa-static');
 const session = require('koa-generic-session');
+const bodyparser = require('koa-better-body');
 
-const admin = require('./src/admin/');
 app.use(session());
+app.use(bodyparser());
 app.use(serve('bin'));
-app.use(admin);
+app.use(require('./src/admin/'));
 
 require('./src/util/requirements').then(() => {
     http.createServer(app.callback()).listen(9000);

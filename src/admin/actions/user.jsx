@@ -1,5 +1,25 @@
 import url from '../util/url';
 
+const loggingIn = () => {
+	return {
+		type: 'LOGGING_IN'
+	};
+};
+
+export function login(data) {
+	return dispatch => {
+		dispatch(loggingIn());
+		
+		return fetch(url('/api/login'), {
+			method: 'POST',
+			body: data
+		}).then(response => response.json())
+		.then(result => {
+			console.log(result);
+		});
+	}
+}
+
 const loadingInvitees = () => {
     return {
         type: 'LOADING_INVITEES'
@@ -17,7 +37,7 @@ function doLoad(dispatch) {
     dispatch(loadingInvitees());
         
     console.log("Loading invitees...");
-    return fetch(url('/api/invitees'))
+    return fetch(url('api/invitees'))
         .then(response => response.json())
         .then(invitees => {
             console.log("Loaded invitees");
