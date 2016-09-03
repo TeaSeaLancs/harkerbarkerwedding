@@ -38,6 +38,13 @@ const invitedTo = invitee => {
     return sentence(invitee.invitedTo.map(location => invitedMap[location]));
 }
 
+const invitedToPlusComments = invitee => {
+    return (<div>
+        <div>{invitedTo(invitee)}</div>
+        <div style={{color: deepPurple100}}>{invitee.comments || ""}</div>
+    </div>)
+}
+
 class Invitee extends Component {
     render() {
         return (
@@ -45,8 +52,9 @@ class Invitee extends Component {
                 className={styles.invitee} 
                 leftAvatar={stateAvatar(this.props.invitee)}
                 primaryText={firstNames(this.props.invitee)}
-                secondaryText={invitedTo(this.props.invitee)}
-                ></ListItem>
+                secondaryText={invitedToPlusComments(this.props.invitee)}
+                secondaryTextLines={2}>
+            </ListItem>
         )
     }
 }
