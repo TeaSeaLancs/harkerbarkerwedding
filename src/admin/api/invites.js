@@ -5,4 +5,8 @@ module.exports = router => {
         const db = yield mongo;
         this.body = yield db.collection('invitees').find().toArray();
     });
+    
+    router.post('/invitee', function*() {
+        
+    });
 }
