@@ -9,13 +9,16 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-import { combineReducers } from 'redux';
+import { combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+import theme from '../util/theme';
 
 import reducers from './reducers/app';
 import createStore from '../util/createStore';
@@ -25,12 +28,12 @@ import { createAndLoadFor } from '../util/loadComponentNeeds';
 const preloadedState = window.__PRELOADED__STATE__;
 
 const allReducers = combineReducers(Object.assign({routing: routerReducer}, reducers));
-const store = createStore(allReducers, preloadedState);
+const store = createStore(allReducers, preloadedState, applyMiddleware(routerMiddleware(browserHistory)));
 const history = syncHistoryWithStore(browserHistory, store);
 
 const app = (
     <Provider store={store}>
-        <MuiThemeProvider>
+        <MuiThemeProvider theme={getMuiTheme(theme)}>
             <Router history={history} routes={getRoutes(store)} createElement={createAndLoadFor(store)} />
         </MuiThemeProvider>
     </Provider>

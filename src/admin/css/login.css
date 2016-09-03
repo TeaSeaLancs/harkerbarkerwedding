@@ -33,3 +33,8 @@
 .loginButton {
     margin-top: 1rem;
 }
+
+.loginError {
+    height: 1.25rem;
+    color: red;
+}

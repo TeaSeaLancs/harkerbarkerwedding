@@ -1,0 +1,25 @@
+@import './base.css';
+
+.dashboard {
+    background-color: #EDE7F6;
+    width: 100vw;
+    height: 100vh;
+}
+
+.dashboardCounts {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    margin: 0 -0.25rem;
+}
+
+.dashboardCounts > * {
+    margin: 0 0.25rem;
+}
+
+.dashboardAdd {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}

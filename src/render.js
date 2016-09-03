@@ -14,10 +14,12 @@ const match = data => new Promise(resolve => {
 
 module.exports = (name, getRoutes, reducers) => {
     const reducer = combineReducers(reducers);
-    const store = createStore(reducer, {});
-    const routes = getRoutes(store);
     
     return function* render(next) {
+        console.log(this.session.user);
+        const store = createStore(reducer, {});
+        const routes = getRoutes(store);
+        
         const [error, redirectLocation, renderProps] = yield match({routes, location: this.url});
         if (error) {
             this.throw(error.message, 500);
@@ -28,10 +30,8 @@ module.exports = (name, getRoutes, reducers) => {
             yield loadComponentNeeds(store, renderProps.components, renderProps.params);
             const body = ReactDOMServer.renderToString(serverRender(store, renderProps, userAgent));
             this.body = html(name, body, store.getState());
-        } else if (next) {
-            yield next;
-        } else {
-            this.throw("Not Found", 404);
         }
+        
+        yield next;
     }
 }

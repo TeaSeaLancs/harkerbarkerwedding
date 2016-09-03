@@ -9,6 +9,7 @@ const serve = require('koa-static');
 const session = require('koa-generic-session');
 const bodyparser = require('koa-better-body');
 
+app.keys = ['koa-tutorial'];
 app.use(session());
 app.use(bodyparser());
 app.use(serve('bin'));

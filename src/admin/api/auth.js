@@ -13,6 +13,12 @@ function auth(username, password) {
 		});
 }
 
+function login(req, sessionData) {
+    console.log("Logging in ", req.session);
+    req.session.user = sessionData;
+    console.log("Logged in", req.session);
+}
+
 module.exports = router => {
     router.post('/login', function*() {
 		const { username, password } = this.request.fields;
@@ -26,8 +32,10 @@ module.exports = router => {
 				this.status = 404;
 				this.body = "Not found";
 			} else {
+                const sessionData = {username};
+                login(this, sessionData);
 				this.status = 200;
-				this.body = "";
+				this.body = sessionData;
 			}
 		} catch (err) {
 			console.error(err);

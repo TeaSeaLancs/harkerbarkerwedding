@@ -7,7 +7,7 @@ function middleware() {
 
 function create(reducer, state, enhancer) {
     enhancer = enhancer ? compose(enhancer, middleware()) : middleware();
-    return createStore(reducer, state, compose(enhancer, applyMiddleware(thunk)));
+    return createStore(reducer, state, enhancer);
 }
 
 export default create;
