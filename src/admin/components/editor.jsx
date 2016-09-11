@@ -9,7 +9,7 @@ import List, { ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
 import FlatButton from 'material-ui/FlatButton';
-import Clear from 'material-ui/svg-icons/Content/Clear';
+import Clear from 'material-ui/svg-icons/content/clear';
 
 import { firstNames, locations } from '../util/data';
 

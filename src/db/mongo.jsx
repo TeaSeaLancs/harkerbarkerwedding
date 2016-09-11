@@ -11,6 +11,6 @@ if (!mongoURL) {
 export default MongoClient.connect(mongoURL);
 export function koa() {
     return new MongoStore({
-        uri: mongoURL
+        url: mongoURL
     });
 }

@@ -1,9 +1,22 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const PATHS = {
 	src: path.join(__dirname, 'src'),
 	build: path.join(__dirname, 'bin')
 };
+
+const plugins = [];
+
+if (process.NODE_ENV === 'production') {
+    plugins.push(new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                // suppresses warnings, usually from module minification
+                warnings: false
+            }
+        }));
+}
 
 module.exports = {
     entry: {
@@ -16,15 +29,7 @@ module.exports = {
     resolve: {
         extensions: ["", ".jsx", ".js"]
     },
-    /*plugins: [ // Disabled for now but jesus seriously, this reduces the size of the build by 2/3rds
-        // Minify the bundle
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            // suppresses warnings, usually from module minification
-            warnings: false,
-          }
-        }),
-    ],*/
+    plugins,
     module: {
 		loaders: [
 			{
