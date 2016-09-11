@@ -71,7 +71,7 @@ function updatePerson(event, component, invitee, person) {
 }
 
 function editablePeople(component, invitee) {
-    return [...invitee.people, {name: "", status: 'pending', new: true}].map((person, i) => {
+    return [...invitee.people, {name: "", state: 'pending', new: true}].map((person, i) => {
         return (
             <ListItem key={`person_${i}`} rightIconButton={editableIconButton(component, invitee, person)} >
                 <TextField 

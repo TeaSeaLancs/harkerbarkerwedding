@@ -5,25 +5,14 @@ import Avatar from 'material-ui/Avatar';
 import { colours } from './invitee';
 
 class InviteeCounts extends Component {
-    constructor(props) {
-        super(props);
-        const list = this.props.invitees;
-        this.state = {
-            counts: {
-                total: count(list),
-                pending: countState(list, 'pending'),
-                accepted: countState(list, 'accepted'),
-                declined: countState(list, 'declined')
-            }
-        }
-    }
     render() {
+        const invitees = this.props.invitees;
         return (
             <div className={this.props.className}>
-                <Avatar backgroundColor={colours.total} title="Total">{this.state.counts.total}</Avatar>
-                <Avatar backgroundColor={colours.pending} title="Pending">{this.state.counts.pending}</Avatar>
-                <Avatar backgroundColor={colours.accepted} title="Accepted">{this.state.counts.accepted}</Avatar>
-                <Avatar backgroundColor={colours.declined} title="Declined">{this.state.counts.declined}</Avatar>
+                <Avatar backgroundColor={colours.total} title="Total">{count(invitees)}</Avatar>
+                <Avatar backgroundColor={colours.pending} title="Pending">{countState(invitees, 'pending')}</Avatar>
+                <Avatar backgroundColor={colours.accepted} title="Accepted">{countState(invitees, 'accepted')}</Avatar>
+                <Avatar backgroundColor={colours.declined} title="Declined">{countState(invitees, 'declined')}</Avatar>
             </div>
         )
     }
