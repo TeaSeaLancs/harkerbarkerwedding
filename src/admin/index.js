@@ -17,9 +17,9 @@ const koaFetch = require('../util/koa-fetch');
 const session = Session({
     store: mongo(),
     cookie: {
+        maxAge: 10 * 1000 * 60,
         domain: process.env.ADMIN_DOMAIN,
-        overwrite: true,
-        httpOnly: false
+        overwrite: true
     }
 });
 
