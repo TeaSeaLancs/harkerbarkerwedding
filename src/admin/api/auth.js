@@ -14,9 +14,8 @@ function auth(username, password) {
 }
 
 function login(req, sessionData) {
-    console.log("Logging in ", req.session);
     req.session.user = sessionData;
-    console.log("Logged in", req.session);
+    console.log("Logged in as", sessionData);
 }
 
 module.exports = router => {

@@ -14,8 +14,6 @@ const Security = require('../util/security');
 
 const koaFetch = require('../util/koa-fetch');
 
-console.log(mongo());
-
 const session = Session({
     store: mongo(),
     cookie: {

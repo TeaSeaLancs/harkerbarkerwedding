@@ -8,7 +8,6 @@ export default store => {
     const requireAuth = (nextState, replace, callback) => {
         const { user } = store.getState();
         if (!user.session) {
-            console.log("Lol nope");
             replace('/login'); 
         }
         

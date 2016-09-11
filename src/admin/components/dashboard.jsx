@@ -2,73 +2,88 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import AppBar from 'material-ui/AppBar';
-import Avatar from 'material-ui/Avatar';
 import List from 'material-ui/List';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Add from 'material-ui/svg-icons/content/add';
+import Snackbar from 'material-ui/Snackbar';
+
 import DocumentTitle from 'react-document-title';
 
-import Invitee, { colours } from './invitee';
+import Invitee from './invitee';
+import Editor from './editor';
+import InviteeCounts from './inviteeCounts';
+
+import { createNewInvitee, openInvitee, finishedEditing, saveInvitee, deleteInvitee, undoLastDeletion, definitelyNotUndoingDeletion } from '../actions/edit';
 
 import styles from '../css/dashboard.css';
 
 import { loadInviteesIfRequired } from '../actions/invitees';
+
+function editorIfRequired(component) {
+    if (component.props.editInvitee) {
+        return (<Editor 
+                    invitee={component.props.editInvitee} 
+                    close={component.props.finish} 
+                    save={component.props.save}
+                    delete={component.props.delete}></Editor>);
+    }
+}
 
 class Dashboard extends Component {
     static needs() {
         return [loadInviteesIfRequired];
     }
     render() {
-        console.log(this.props.invitees);
         return (
             <DocumentTitle title="Dashboard - Harker/Barker Wedding Admin">
                 <div>
                     <AppBar title="Harker/Barker wedding admin">
-                        <div className={styles.dashboardCounts}>
-                            <Avatar backgroundColor={colours.total} title="Total">{this.props.counts.total}</Avatar>
-                            <Avatar backgroundColor={colours.pending} title="Pending">{this.props.counts.pending}</Avatar>
-                            <Avatar backgroundColor={colours.accepted} title="Accepted">{this.props.counts.accepted}</Avatar>
-                            <Avatar backgroundColor={colours.declined} title="Declined">{this.props.counts.declined}</Avatar>
-                        </div>
+                        <InviteeCounts invitees={this.props.invitees} className={styles.dashboardCounts}></InviteeCounts>
                     </AppBar>
                     <List>
-                        {this.props.invitees.map((invitee, i) => (<Invitee invitee={invitee} key={i}></Invitee>))}
+                        {this.props.invitees.map((invitee, i) => (
+                            <Invitee key={i} invitee={invitee} open={() => this.props.open(invitee)}></Invitee>
+                        ))}
                     </List>
-                    <FloatingActionButton className={styles.dashboardAdd}>
-                        <Add></Add>    
+                    <FloatingActionButton className={styles.dashboardAdd} onTouchTap={() => this.props.new()}>
+                        <Add></Add>
                     </FloatingActionButton>
+                    <Snackbar 
+                        open={this.props.showingUndo} 
+                        message="Guest deleted" 
+                        action="Undo"
+                        onActionTouchTap={() => this.props.undoDelete()}
+                        onRequestClose={() => this.props.notUndoingDeletion()}
+                        autoHideDuration={5000}
+                    ></Snackbar>
+                    {editorIfRequired(this)}
                 </div>
             </DocumentTitle>
         )
     }
 }
 
-const count = list => list.reduce((count, invitee) => {
-   return invitee.people.reduce(count => ++count, count);
-}, 0);
-
-const countState = (list, state) => list.reduce((count, invitee) => {
-    return invitee.people.reduce((count, person) => {
-        if (person.state === state) {
-            return ++count;
-        }
-        return count;
-    }, count);
-}, 0);
-
 const mapStateToProps = state => {
-    const { invitees : { list, loaded }} = state;
+    const { invitees : { list, loaded }, edit: { currentInvitee, lastDeleted }} = state;
     
     return {
-        counts: {
-            total: count(list),
-            pending: countState(list, 'pending'),
-            accepted: countState(list, 'accepted'),
-            declined: countState(list, 'declined')
-        },
         invitees: list,
-        loaded
+        loaded,
+        editInvitee: currentInvitee,
+        showingUndo: !!lastDeleted
     };
 }
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = dispatch => {
+    return {
+        open: invitee => dispatch(openInvitee(invitee)),
+        new: () => dispatch(createNewInvitee()),
+        finish: () => dispatch(finishedEditing()),
+        save: invitee => dispatch(saveInvitee(invitee)),
+        'delete': invitee => dispatch(deleteInvitee(invitee)),
+        undoDelete: () => dispatch(undoLastDeletion()),
+        notUndoingDeletion: () => dispatch(definitelyNotUndoingDeletion())
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
