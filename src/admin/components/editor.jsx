@@ -48,12 +48,11 @@ function updateInvitedTo(component, invitee, location, checked) {
 
 function locationEntry(name, displayName, component, invitee) {
     return (
-        <ListItem key={name}>
-            <Checkbox 
-                defaultChecked={invitee.invitedTo.indexOf(name) > -1} 
-                label={displayName} 
-                onCheck={(event, checked) => updateInvitedTo(component, invitee, name, checked)}></Checkbox>
-        </ListItem>
+        <Checkbox 
+            key={name}
+            defaultChecked={invitee.invitedTo.indexOf(name) > -1} 
+            label={displayName} 
+            onCheck={(event, checked) => updateInvitedTo(component, invitee, name, checked)}></Checkbox>
     );
 }
 
@@ -89,7 +88,7 @@ function invitedList(component, invitee) {
     for (let name in locations) {
         entries.push(locationEntry(name, locations[name], component, invitee));
     }
-    return entries;
+    return (<ListItem className={styles.locationBox}>{entries}</ListItem>)
 }
 
 function clone(invitee) {
@@ -102,6 +101,10 @@ function clone(invitee) {
 function validate(invitee) {
     invitee.people = invitee.people.filter(p => !!p.name);
     return invitee;
+}
+
+function updateContact(event, invitee) {
+    invitee.contact = event.target.value;
 }
 
 class Editor extends Component {
@@ -136,6 +139,15 @@ class Editor extends Component {
                 <List>
                     <Subheader>People</Subheader>
                     {editablePeople(this, this.state.invitee)}
+                    <ListItem>
+                        <TextField
+                            fullWidth={true}
+                            defaultValue={this.state.invitee.contact}
+                            floatingLabelText="Email address" 
+                            hintText="(Enter 'paper' for paper invite)" 
+                            onChange={event => updateContact(event, this.state.invitee)}>
+                        </TextField>
+                    </ListItem>
                     <Subheader>Invited to</Subheader>
                     {invitedList(this, this.state.invitee)}
                 </List>

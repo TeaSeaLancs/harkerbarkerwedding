@@ -1,3 +1,13 @@
 .inviteeEditor {
     max-height: 80vh;
 }
+
+.locationBox > div > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.locationBox > div > div > * {
+    width: auto !important;
+    white-space: nowrap;
+}

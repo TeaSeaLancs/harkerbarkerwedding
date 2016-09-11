@@ -6,6 +6,7 @@ function blankInvitee() {
     return {
         id: null,
         state: 'pending',
+        contact: '',
         invitedTo: [],
         people: [],
         comments: ""

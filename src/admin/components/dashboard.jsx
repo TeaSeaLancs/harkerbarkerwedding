@@ -37,7 +37,7 @@ class Dashboard extends Component {
         return (
             <DocumentTitle title="Dashboard - Harker/Barker Wedding Admin">
                 <div>
-                    <AppBar title="Harker/Barker wedding admin">
+                    <AppBar title="Harker/Barker wedding admin" showMenuIconButton={false}>
                         <InviteeCounts invitees={this.props.invitees} className={styles.dashboardCounts}></InviteeCounts>
                     </AppBar>
                     <List>
