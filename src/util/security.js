@@ -32,7 +32,24 @@ function encrypt(password) {
 	});
 }
 
+function checkSession(session) {
+    if (!session.user || session.user.guest) {
+        throw new Error("Unauthorized");
+    }
+}
+
+function userCheck(session) {
+    if (!session.user) {
+        session.user = {
+            username: 'guest',
+            guest: true
+        }
+    }
+}
+
 module.exports = {
 	authenticate,
-	encrypt
+	encrypt,
+    checkSession,
+    userCheck
 }

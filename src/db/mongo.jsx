@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+const MongoStore = require('koa-generic-session-mongo');
 
 const mongoURL = process.env['MONGODB_URL'];
 
@@ -8,3 +9,8 @@ if (!mongoURL) {
 }
 
 export default MongoClient.connect(mongoURL);
+export function koa() {
+    return new MongoStore({
+        uri: mongoURL
+    });
+}

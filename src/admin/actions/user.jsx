@@ -25,7 +25,8 @@ export function login(data) {
         
         const options = {
 			method: 'POST',
-			body: data
+			body: data,
+            credentials: 'include'
 		};
 		
 		return fetch(url('/api/login'), options)

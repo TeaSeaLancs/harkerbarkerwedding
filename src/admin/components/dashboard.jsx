@@ -6,6 +6,8 @@ import Avatar from 'material-ui/Avatar';
 import List from 'material-ui/List';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Add from 'material-ui/svg-icons/content/add';
+import DocumentTitle from 'react-document-title';
+
 import Invitee, { colours } from './invitee';
 
 import styles from '../css/dashboard.css';
@@ -19,22 +21,24 @@ class Dashboard extends Component {
     render() {
         console.log(this.props.invitees);
         return (
-            <div>
-                <AppBar title="Harker/Barker wedding admin">
-                    <div className={styles.dashboardCounts}>
-                        <Avatar backgroundColor={colours.total} title="Total">{this.props.counts.total}</Avatar>
-                        <Avatar backgroundColor={colours.pending} title="Pending">{this.props.counts.pending}</Avatar>
-                        <Avatar backgroundColor={colours.accepted} title="Accepted">{this.props.counts.accepted}</Avatar>
-                        <Avatar backgroundColor={colours.declined} title="Declined">{this.props.counts.declined}</Avatar>
-                    </div>
-                </AppBar>
-                <List>
-                    {this.props.invitees.map((invitee, i) => (<Invitee invitee={invitee} key={i}></Invitee>))}
-                </List>
-                <FloatingActionButton className={styles.dashboardAdd}>
-                    <Add></Add>    
-                </FloatingActionButton>
-            </div>
+            <DocumentTitle title="Dashboard - Harker/Barker Wedding Admin">
+                <div>
+                    <AppBar title="Harker/Barker wedding admin">
+                        <div className={styles.dashboardCounts}>
+                            <Avatar backgroundColor={colours.total} title="Total">{this.props.counts.total}</Avatar>
+                            <Avatar backgroundColor={colours.pending} title="Pending">{this.props.counts.pending}</Avatar>
+                            <Avatar backgroundColor={colours.accepted} title="Accepted">{this.props.counts.accepted}</Avatar>
+                            <Avatar backgroundColor={colours.declined} title="Declined">{this.props.counts.declined}</Avatar>
+                        </div>
+                    </AppBar>
+                    <List>
+                        {this.props.invitees.map((invitee, i) => (<Invitee invitee={invitee} key={i}></Invitee>))}
+                    </List>
+                    <FloatingActionButton className={styles.dashboardAdd}>
+                        <Add></Add>    
+                    </FloatingActionButton>
+                </div>
+            </DocumentTitle>
         )
     }
 }

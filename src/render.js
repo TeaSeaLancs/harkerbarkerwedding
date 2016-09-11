@@ -1,6 +1,7 @@
 const ReactDOMServer = require('react-dom/server');
 const ReactRouter = require('react-router');
 const { combineReducers } = require('redux');
+const DocumentTitle = require('react-document-title');
 
 const serverRender = require('./util/serverRender');
 const html = require('./util/html');
@@ -12,12 +13,22 @@ const match = data => new Promise(resolve => {
    return ReactRouter.match(data, (error, redirectLocation, renderProps) => resolve([error, redirectLocation, renderProps]));
 });
 
+const getInitialState = session => {
+    if (session.user && !session.user.guest) {
+        return {
+            user: {
+                session: session.user
+            }
+        }
+    }
+}
+
 module.exports = (name, getRoutes, reducers) => {
     const reducer = combineReducers(reducers);
     
     return function* render(next) {
-        console.log(this.session.user);
-        const store = createStore(reducer, {});
+        let initialState = getInitialState(this.session);
+        const store = createStore(reducer, initialState);
         const routes = getRoutes(store);
         
         const [error, redirectLocation, renderProps] = yield match({routes, location: this.url});
@@ -29,7 +40,8 @@ module.exports = (name, getRoutes, reducers) => {
             const userAgent = this.request.header['user-agent'];
             yield loadComponentNeeds(store, renderProps.components, renderProps.params);
             const body = ReactDOMServer.renderToString(serverRender(store, renderProps, userAgent));
-            this.body = html(name, body, store.getState());
+            const title = DocumentTitle.rewind();
+            this.body = html(name, title, body, store.getState());
         }
         
         yield next;

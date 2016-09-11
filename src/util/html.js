@@ -1,10 +1,10 @@
 const css = require('./css');
 
-module.exports = (name, body, state) => `
+module.exports = (name, title, body, state) => `
 <!DOCTYPE html>
 <html>
     <head>
-        <title>koa ejs</title>
+        <title>${title}</title>
         <style type="text/css">${css.join("\n\n")}</style>
     </head>
     <body>

@@ -17,7 +17,7 @@ function doLoad(dispatch) {
     dispatch(loadingInvitees());
         
     console.log("Loading invitees...");
-    return fetch(url('/api/invitees'))
+    return fetch(url('/api/invitees'), {credentials: 'include'})
         .then(response => response.json())
         .then(invitees => {
             console.log("Loaded invitees");

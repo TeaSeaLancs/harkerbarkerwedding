@@ -1,16 +1,15 @@
 require('babel-register')({
     extensions: ['.jsx']
 });
+require('isomorphic-fetch');
 require('./src/util/css');
 
 const http = require('http');
 const app = require('koa')();
 const serve = require('koa-static');
-const session = require('koa-generic-session');
 const bodyparser = require('koa-better-body');
 
 app.keys = ['koa-tutorial'];
-app.use(session());
 app.use(bodyparser());
 app.use(serve('bin'));
 app.use(require('./src/admin/'));
