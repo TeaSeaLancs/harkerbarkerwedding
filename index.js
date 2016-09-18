@@ -26,7 +26,7 @@ require('./src/util/requirements').then(() => {
     } else {
         const server = https.createServer(le.httpsOptions, le.middleware(app.callback()));
         server.listen(9443, () => {
-            console.log('Listening at https://localhost:' + this.address().port);
+            console.log(`Production server up on 9443`);
         });
     }
     
