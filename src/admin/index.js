@@ -29,4 +29,4 @@ function* check(next) {
 }
 
 const render = Render('admin', routes, reducers);
-module.exports = subdomain('admin', compose([session, check, koaFetch, api.routes(), render]));
+module.exports = compose([session, check, koaFetch, api.routes(), render]);

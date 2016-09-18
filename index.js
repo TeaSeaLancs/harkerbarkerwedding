@@ -23,15 +23,4 @@ require('./src/util/requirements').then(() => {
        console.log("Server up"); 
     });
     
-    /*if (process.env.NODE_ENV === 'development') {
-        http.createServer(app.callback()).listen(9000, () => {
-            console.log("Dev server up");
-        });
-    } else {
-        const server = https.createServer(le.httpsOptions, le.middleware(app.callback()));
-        server.listen(9443, () => {
-            console.log(`Production server up on 9443`);
-        });
-    }*/
-    
 }).catch(err => console.error(err));
