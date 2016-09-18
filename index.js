@@ -28,6 +28,11 @@ require('./src/util/requirements').then(() => {
         server.listen(9443, () => {
             console.log(`Production server up on 9443`);
         });
+        
+        const redirectHttps = require('koa').use(require('koa-sslify')()).callback();
+        http.createServer(le.middleware(redirectHttps)).listen(80, function () {
+          console.log('handle ACME http-01 challenge and redirect to https');
+        });
     }
     
 }).catch(err => console.error(err));

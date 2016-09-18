@@ -16,4 +16,5 @@ EXPOSE 9443
 EXPOSE 9000
 
 WORKDIR /harkerbarker
+USER harkerbarker
 CMD ["npm", "start"]
