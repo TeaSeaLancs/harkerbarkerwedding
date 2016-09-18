@@ -54,9 +54,7 @@
     "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1",
     "uuid": "^2.0.2",
-    "webpack": "^1.13.2"
-  },
-  "devDependencies": {
+    "webpack": "^1.13.2",
     "babel-preset-react": "^6.11.1"
   }
 }
