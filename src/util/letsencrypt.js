@@ -11,7 +11,6 @@ const approveDomains = (options, certs, cb) => {
     options.email = 'thundercloud@theflux.co.uk'
     options.agreeTos = true;
     
-    console.log("LE", options, certs, cb);
     cb(null, {options, certs});
 }
 
