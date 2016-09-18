@@ -4,9 +4,11 @@ require('babel-register')({
 require('isomorphic-fetch');
 require('./src/util/css');
 
+const koa = require('koa');
+
 const http = require('http');
 const https = require('https');
-const app = require('koa')();
+const app = koa();
 const serve = require('koa-static');
 const bodyparser = require('koa-better-body');
 
@@ -29,7 +31,7 @@ require('./src/util/requirements').then(() => {
             console.log(`Production server up on 9443`);
         });
         
-        const redirectHttps = require('koa').use(require('koa-sslify')()).callback();
+        const redirectHttps = koa().use(require('koa-sslify')()).callback();
         http.createServer(le.middleware(redirectHttps)).listen(80, function () {
           console.log('handle ACME http-01 challenge and redirect to https');
         });
