@@ -28,5 +28,15 @@ function* check(next) {
     yield next;
 }
 
-const render = Render('admin', routes, reducers);
+const getInitialState = req => {
+    if (req.session.user && !req.session.user.guest) {
+        return {
+            user: {
+                session: session.user
+            }
+        }
+    }
+}
+
+const render = Render('admin', routes, getInitialState, reducers);
 module.exports = subdomain('admin', compose([session, check, koaFetch, api.routes(), render]));

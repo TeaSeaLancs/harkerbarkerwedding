@@ -18,6 +18,7 @@ app.keys = ['koa-tutorial'];
 app.use(bodyparser());
 app.use(serve('bin'));
 app.use(require('./src/admin/'));
+app.use(require('./src/main'));
 
 require('./src/util/requirements').then(() => {
     

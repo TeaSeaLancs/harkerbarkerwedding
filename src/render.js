@@ -13,21 +13,11 @@ const match = data => new Promise(resolve => {
    return ReactRouter.match(data, (error, redirectLocation, renderProps) => resolve([error, redirectLocation, renderProps]));
 });
 
-const getInitialState = session => {
-    if (session.user && !session.user.guest) {
-        return {
-            user: {
-                session: session.user
-            }
-        }
-    }
-}
-
-module.exports = (name, getRoutes, reducers) => {
+module.exports = (name, getRoutes, getInitialState, reducers) => {
     const reducer = combineReducers(reducers);
     
     return function* render(next) {
-        let initialState = getInitialState(this.session);
+        let initialState = getInitialState(this);
         const store = createStore(reducer, initialState);
         const routes = getRoutes(store);
         

@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
+
 const PATHS = {
 	src: path.join(__dirname, 'src'),
 	build: path.join(__dirname, 'bin')
@@ -20,7 +21,8 @@ if (process.NODE_ENV === 'production') {
 
 module.exports = {
     entry: {
-        admin: path.join(PATHS.src, 'admin', 'browser.jsx')
+        admin: path.join(PATHS.src, 'admin', 'browser.jsx'),
+        main: path.join(PATHS.src, 'main', 'browser.jsx')
     },
 	output: {
 		path: PATHS.build,
@@ -41,7 +43,11 @@ module.exports = {
 				test: /\.jsx?$/,
 				loader: 'babel?cacheDirectory',
                 include: PATHS.src
-			}
+			},
+            {
+                test: /\.(jpe?g|png)$/i,
+                loaders: ['file-loader']
+            }
 		]
 	}
 };
