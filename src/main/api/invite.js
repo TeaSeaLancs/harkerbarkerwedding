@@ -1,14 +1,13 @@
 const mongo = require('../../db/mongo').default;
 
-const mapPlacesToDates = places => {
-    const hasSouth = places.includes('south');
-    const hasCeremony = places.includes('ceremony');
-    
-    if (!hasCeremony) {
-        return "8th of April, 2016";
-    } else {
-        return "7th & 8th of April, 2016"
-    }
+const LOCATIONS = {
+    ceremony: `St Mary's church, Bedford, April 7th 2017`,
+    south: `Trestle Arts Base, St Albans, April 8th 2017`,
+    north: `Skitby Hall, near Carlisle, April 15th 2017`
+}
+
+const mapPlacesToLocations = places => {
+    return places.map(place => LOCATIONS[place]);
 }
 
 module.exports = router => {
@@ -26,7 +25,7 @@ module.exports = router => {
                     state: invite.state,
                     people: invite.people,
                     comments: invite.comments,
-                    dates: mapPlacesToDates(invite.invitedTo)
+                    locations: mapPlacesToLocations(invite.invitedTo)
                 }
             }
         } catch (err) {

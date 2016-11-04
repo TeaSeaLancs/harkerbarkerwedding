@@ -7,7 +7,11 @@ import styles from '../css/welcome.css';
 import { loadInviteIfNeeded } from '../actions/invite';
 import { firstNames } from '../util/data';
 
-import Paper from 'material-ui/Paper';
+const Locations = ({locations}) => (
+    <div>
+        {locations.map((location, i) => (<div key={i} className={styles.location}>{location}</div>))}
+    </div>
+);
 
 class Welcome extends Component {
     static needs() {
@@ -17,11 +21,16 @@ class Welcome extends Component {
         return (
             <DocumentTitle title="The Harker/Barker Wedding">
                 <div className={styles.welcome}>
-                    <Paper className={styles.inviteMessage} style={{backgroundColor: 'rgba(255, 255, 255, 0.4)'}}>
-                        <div className={styles.invitePeople}>{firstNames(this.props.people)}</div>
-                        <div>Save the date because you're invited!</div>
-                        <div>{this.props.dates}</div>
-                    </Paper>
+                    <div className={styles.welcomeMessage}>
+                        <div className={styles.inviteMessage}>
+                            <div className={styles.invitePeople}>{firstNames(this.props.people)}</div>
+                            <div>Matt &amp; Rach would love you to come to their wedding celebrations!</div>
+                            <Locations locations={this.props.locations}></Locations>
+                        </div>
+                        <div className={styles.inviteDetails}>
+                            <div></div>
+                        </div>
+                    </div>
                 </div>
             </DocumentTitle>
         );
