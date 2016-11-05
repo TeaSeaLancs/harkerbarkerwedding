@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     
-    font-family: helvetica;
+    font-family: 'Roboto', sans-serif;
     
     padding-top: 10vh;
     padding-bottom: 10vh;
@@ -47,12 +47,24 @@
 .welcome .welcomeMessage {
     color: white;
     text-align: center;
+    
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .welcome .inviteMessage {
+    width: 100vw;
     padding: 2rem;
     font-size: 2rem;
     line-height: 2.5rem;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome .locations {
+    padding-top: 1rem;
 }
 
 .welcome .location {
@@ -63,8 +75,17 @@
 
 .invitePeople {
     font-size: 3.5rem;
+    font-weight: bold;
     line-height: 1em;
-    padding-bottom: 1rem;
+    padding-bottom: 3.5rem;
+}
+
+.inviteButtons {
+    padding: 2rem;
+}
+
+.inviteButtons > * {
+    margin: 0 2rem;
 }
 
 @media (max-width: 1024px) {
