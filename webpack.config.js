@@ -39,7 +39,7 @@ module.exports = {
 				loaders: [
                     'style', 
                     'css?modules&url=false&localIdentName=[name]__[local]___[hash:base64:5]&importLoaders=1', 
-                    'postcss-loader'
+                    'autoprefixer-loader'
                 ],
 				include: PATHS.src
 			},
@@ -53,6 +53,5 @@ module.exports = {
                 loaders: ['file-loader']
             }
 		]
-	},
-    postcss: [ require('autoprefixer')({browsers: ['last 2 versions']}) ]
+	}
 };
