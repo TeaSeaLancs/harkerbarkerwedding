@@ -62,11 +62,29 @@ const InviteResponse = ({state, gif, ...props}) => {
     return null;
 };
 
+const NoInvite = props => (
+    <DocumentTitle title="The Harker/Barker Wedding">
+        <div className={styles.welcome}>
+            <div className={styles.welcomeMessage}>
+                <div className={styles.inviteMessage}>
+                    Hi there, we can't seem to find your invite to the Harker/Barker wedding.
+                </div>
+                <div className={styles.inviteDetails}>
+                    Please check your invite link, or ask Matt and/or Rachel about what's going on.
+                </div>
+            </div>
+        </div>
+    </DocumentTitle>
+);
+
 class Welcome extends Component {
     static needs() {
         return [loadInviteIfNeeded, loadGifIfNeeded];
     }
     render() {
+        if (!this.props.exists) {
+            return (<NoInvite></NoInvite>);
+        }
         
         const { people, locations, accept, decline, state, gif } = this.props;
         
@@ -90,10 +108,14 @@ class Welcome extends Component {
     }
 }
 
+Welcome.defaultProps = {
+    exists: true
+};
+
 const mapStateToProps = state => {
-    const { invite: { invite, gif } } = state;
+    const { invite: { invite, gif, exists } } = state;
     
-    return {...invite, gif};
+    return {...invite, exists, gif};
 }
 
 const mapDispatchToProps = dispatch => {

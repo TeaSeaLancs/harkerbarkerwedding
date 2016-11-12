@@ -103,21 +103,23 @@
     height: auto;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (orientation: portrait) {
     html {
-        font-size: 125%;
+        font-size: 150%;
     }
     
+    .welcome {
+        background-position: 20%;
+    }
+}
+
+@media (max-width: 1024px) {
     .welcome {
         background-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.25)), url('/images/welcome-768.jpg');
     }
 }
 
-@media (max-width: 480px) {
-    html {
-        font-size: 150%;
-    }
-    
+@media (max-width: 480px) {    
     .welcome {
         background-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.25)), url('/images/welcome-360.jpg');
     }

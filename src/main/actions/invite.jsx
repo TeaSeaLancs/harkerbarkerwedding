@@ -23,16 +23,24 @@ const gotGif = gif => ({
     gif
 });
 
+const inviteDoesNotExist = () => ({
+    type: "NO_INVITE"
+});
+
 const loadInvite = id => dispatch => {
     return fetch(url(`/api/invite/${id}`))
         .then(response => {
             if (!response.ok) {
-                console.log("Oh dear", response);
+                throw new Error("No invite matching that ID");
             } else {
                 return response.json();
             }
         })
-        .then(invite => dispatch(loadedInvite(invite)));
+        .then(invite => dispatch(loadedInvite(invite)))
+        .catch(err => {
+            console.error(err);
+            dispatch(inviteDoesNotExist());
+        });
 }
 
 export const loadInviteIfNeeded = () => (dispatch, getState) => {

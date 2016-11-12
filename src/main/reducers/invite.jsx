@@ -1,5 +1,6 @@
 export const initialState = {
     loaded: false,
+    exists: true,
     id: null,
     invite: null,
     gif: null
@@ -7,6 +8,11 @@ export const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case "NO_INVITE":
+            return Object.assign({}, state, {
+                loaded: true,
+                exists: false
+            });
         case "LOADED_INVITE":
             return Object.assign({}, state, {
                 invite: action.invite,
