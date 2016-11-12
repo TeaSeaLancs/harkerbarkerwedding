@@ -105,11 +105,23 @@
 
 @media (max-width: 1024px) and (orientation: portrait) {
     html {
-        font-size: 150%;
+        font-size: 175%;
     }
     
     .welcome {
         background-position: 20%;
+    }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+    html {
+        font-size: 85%;
+    }
+    
+    .inviteGif {
+        width: 200px;
+        height: 200px;
+        align-items: flex-start;
     }
 }
 
