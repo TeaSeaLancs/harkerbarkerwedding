@@ -17,7 +17,7 @@ module.exports = router => {
             const invite = yield db.collection('invitees').findOne({id: this.params.id});
             
             if (!invite) {
-                // TODO Handle invite not existing
+                throw new Error("No such invite exists");
             } else {
                 // Ok to so to prevent any untoward information leaking out here we convert the invite into
                 // ready made text.
@@ -27,6 +27,52 @@ module.exports = router => {
                     comments: invite.comments,
                     locations: mapPlacesToLocations(invite.invitedTo)
                 }
+            }
+        } catch (err) {
+            this.status = err.status || 500;
+            this.body = {message: err.message};
+            this.app.emit('error', err, this);
+        }
+    });
+    
+    router.post("/invite/:id/accept", function*() {
+        try {
+            const id = this.params.id;
+            const db = yield mongo;
+            const invite = yield db.collection('invitees').findOne({id});
+            
+            if (!invite) {
+                throw new Error("No such invite exists");
+            } else {
+                const update = {'$set': { state: 'accepted' } };
+                const success = yield db.collection('invitees').updateOne({id}, update);
+                
+                this.body = {
+                    success: true
+                };
+            }
+        } catch (err) {
+            this.status = err.status || 500;
+            this.body = {message: err.message};
+            this.app.emit('error', err, this);
+        }
+    });
+    
+    router.post("/invite/:id/decline", function*() {
+        try {
+            const id = this.params.id;
+            const db = yield mongo;
+            const invite = yield db.collection('invitees').findOne({id});
+            
+            if (!invite) {
+                throw new Error("No such invite exists");
+            } else {
+                const update = {'$set': { state: 'declined' } };
+                const success = yield db.collection('invitees').updateOne({id}, update);
+                
+                this.body = {
+                    success: true
+                };
             }
         } catch (err) {
             this.status = err.status || 500;

@@ -23,12 +23,12 @@ const count = list => list.reduce((count, invitee) => {
 }, 0);
 
 const countState = (list, state) => list.reduce((count, invitee) => {
-    return invitee.people.reduce((count, person) => {
-        if (person.state === state) {
-            return ++count;
-        }
-        return count;
-    }, count);
+    const { state: inviteState, people } = invitee;
+    if (state === inviteState) {
+        return (count + people.length);
+    }
+    
+    return count;
 }, 0);
 
 export default InviteeCounts;

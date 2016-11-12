@@ -31,6 +31,8 @@ const allReducers = combineReducers(Object.assign({routing: routerReducer}, redu
 const store = createStore(allReducers, preloadedState, applyMiddleware(routerMiddleware(browserHistory)));
 const history = syncHistoryWithStore(browserHistory, store);
 
+window.store = store;
+
 const app = (
     <Provider store={store}>
         <MuiThemeProvider theme={getMuiTheme(theme)}>
