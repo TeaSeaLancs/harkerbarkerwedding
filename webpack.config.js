@@ -9,9 +9,10 @@ const PATHS = {
 
 const plugins = [];
 
-if (process.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     plugins.push(new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
+            comments: false,
             compress: {
                 // suppresses warnings, usually from module minification
                 warnings: false

@@ -19,8 +19,12 @@ const avatarLetter = invitee => invitee.people[0].name.substring(0,1);
 const stateAvatar = invitee => (<Avatar backgroundColor={colours[invitee.state] || colours.pending}>{avatarLetter(invitee)}</Avatar>)
 
 const invitedToPlusComments = invitee => {
+    
+    const inviteURL = `https://harkerbarkerwedding.com/welcome/${invitee.id}`;
+    
     return (<div>
         <div>{invitedTo(invitee)}</div>
+        <a href={inviteURL}>{inviteURL}</a>
         <div style={{color: deepPurple100}}>{invitee.comments || ""}</div>
     </div>)
 }
