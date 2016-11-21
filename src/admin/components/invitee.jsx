@@ -24,7 +24,7 @@ const invitedToPlusComments = invitee => {
     
     return (<div>
         <div>{invitedTo(invitee)}</div>
-        <a href={inviteURL}>{inviteURL}</a>
+        <a href={inviteURL} onTouchTap={event => event.stopPropagation()}>{inviteURL}</a>
         <div style={{color: deepPurple100}}>{invitee.comments || ""}</div>
     </div>)
 }

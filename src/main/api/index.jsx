@@ -3,4 +3,5 @@ const router = require('koa-router')({
 });
 
 require('./invite')(router);
+require('./gif')(router);
 module.exports = router;

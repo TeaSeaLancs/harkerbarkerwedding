@@ -57,11 +57,11 @@ const loadGif = () => (dispatch, getState) => {
     
     if (state in GIF_STATE_KEYWORD_MAP) {
         const keyword = GIF_STATE_KEYWORD_MAP[state];
-        return fetch(`http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${keyword}&rating=y`)
+        return fetch(`/api/gif/${keyword}`)
             .then(response => response.json())
             .then(giphyResponse => {
-                const { data: { image_url } } = giphyResponse;
-                dispatch(gotGif(image_url));
+                const { url } = giphyResponse;
+                dispatch(gotGif(url));
             });
     }
 }
