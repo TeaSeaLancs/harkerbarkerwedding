@@ -32,19 +32,27 @@ const InviteButtons = ({people, accept, decline}) => {
     );
 };
 
-const InviteMessage = ({message, gif}) => (
+const InviteMessage = ({message, gif, includeDetails}) => (
     <div>
-        <div>{message}</div>
+        <div className={styles.inviteResponseMessage}>{message}</div>
+        {includeDetails ? <InviteDetailsInformation></InviteDetailsInformation> : null}
         <div className={styles.inviteGif}>
             <img src={gif}></img>
         </div>
     </div>
 );
 
+const InviteDetailsInformation = () => (
+    <div className={styles.inviteDetails}>
+        <div>We'll send out loads more information in a little while!</div>
+    </div>
+)
+
 const InviteResponse = ({state, gif, ...props}) => {
     if (state === 'pending') {
         return (
             <div>
+                <InviteDetailsInformation></InviteDetailsInformation>
                 <div>Already made up your mind? Let us know!</div>
                 <InviteButtons {...props}></InviteButtons>
             </div>
@@ -52,7 +60,7 @@ const InviteResponse = ({state, gif, ...props}) => {
     }
     
     if (state === 'accepted') {
-        return (<InviteMessage message={`You're coming! Fantastic!`} gif={gif}></InviteMessage>);
+        return (<InviteMessage message={`You're coming! Fantastic!`} gif={gif} includeDetails={true}></InviteMessage>);
     }
     
     if (state === 'declined') {
@@ -96,9 +104,6 @@ class Welcome extends Component {
                             <div className={styles.invitePeople}>{firstNames(people)}</div>
                             <div>Matt &amp; Rach would love you to come to their wedding celebrations!</div>
                             <Locations locations={locations}></Locations>
-                        </div>
-                        <div className={styles.inviteDetails}>
-                            <div>We'll send out loads more information in a little while!</div>
                         </div>
                         <InviteResponse gif={gif} state={state} people={people} accept={accept} decline={decline}></InviteResponse>
                     </div>
