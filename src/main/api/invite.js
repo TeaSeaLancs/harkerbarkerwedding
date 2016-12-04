@@ -1,9 +1,9 @@
 const mongo = require('../../db/mongo').default;
 
 const LOCATIONS = {
-    ceremony: `St Mary's church, Bedford, April 7th 2017`,
-    south: `Trestle Arts Base, St Albans, April 8th 2017`,
-    north: `Skitby Hall, near Carlisle, April 15th 2017`
+    ceremony: `The Ceremony @ St Mary's church, Bedford, April 7th 2017`,
+    south: `The Wedding Party @ Trestle Arts Base, St Albans, April 8th 2017`,
+    north: `The Wedding Party @ Skitby House, near Carlisle, April 15th 2017`
 }
 
 const mapPlacesToLocations = places => {
