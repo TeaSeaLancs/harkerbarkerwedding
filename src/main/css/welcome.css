@@ -108,7 +108,20 @@
     padding-bottom: 0.75rem;
 }
 
-@media (max-width: 1024px) and (orientation: portrait) {
+.inviteScreen {
+    display: block;
+}
+
+.invitePrint {
+    display: none;
+}
+
+.inviteAddress {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
     html {
         font-size: 175%;
     }
@@ -118,7 +131,7 @@
     }
 }
 
-@media (max-width: 1024px) and (orientation: landscape) {
+@media screen (max-width: 1024px) and (orientation: landscape) {
     html {
         font-size: 85%;
     }
@@ -130,14 +143,58 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .welcome {
         background-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.25)), url('/images/welcome-768.jpg');
     }
 }
 
-@media (max-width: 480px) {    
+@media screen and (max-width: 480px) {    
     .welcome {
         background-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.25)), url('/images/welcome-360.jpg');
+    }
+}
+
+@page {
+    size: 4in 6in landscape;
+    bleed: 0;
+}
+
+@media print {
+    html {
+        font-size: 75%;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #react-main {
+        width: 100%;
+        height: 100%;
+    }
+    
+    body {
+        width: 100%;
+        height: 100%;
+        min-width: auto;
+        min-height: auto;
+        
+        background-image: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.25)), url('/images/welcome-1440.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .welcome {
+        width: 100%;
+        height: 100%;
+        background: none;
+    }
+    
+    .inviteScreen {
+        display: none;
+    }
+    
+    .invitePrint {
+        display: block;
+        font-size: 1.25rem;
     }
 }

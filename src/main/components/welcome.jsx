@@ -52,9 +52,17 @@ const InviteResponse = ({state, gif, ...props}) => {
     if (state === 'pending') {
         return (
             <div>
-                <InviteDetailsInformation></InviteDetailsInformation>
-                <div>Already made up your mind? Let us know!</div>
-                <InviteButtons {...props}></InviteButtons>
+                <div className={styles.inviteScreen}>
+                    <InviteDetailsInformation></InviteDetailsInformation>
+                    <div>Already made up your mind? Let us know!</div>
+                    <InviteButtons {...props}></InviteButtons>
+                </div>
+                <div className={styles.invitePrint}>
+                    <InviteDetailsInformation></InviteDetailsInformation>
+                    <span className={styles.inviteAddress}>
+                        If you can come, please RSVP to Flat 1, St. James' Court, Park View Close, St. Albans, Hertfordshire, AL1 5TL.
+                    </span>
+                </div>
             </div>
         );
     }
