@@ -4,7 +4,8 @@ const initialState = {
 };
 
 function replaceMatches(i1, i2) {
-    if (i1.id === i2.id) {
+    const matchID = i2.oldID || i2.id;
+    if (i1.id === matchID) {
         return i2;
     }
     

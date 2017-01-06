@@ -48,10 +48,21 @@ module.exports = router => {
                 throw new Error(`Tried to overwrite ${id} with ${invitee.id}`);
             }
             
+            const newID = invitee.newID;
+            
+            if (newID) {
+                invitee.id = newID;
+                delete invitee.newID;
+            }
+            
             const db = yield mongo;
             delete invitee._id;
             yield db.collection('invitees').updateOne({id}, invitee);
-            this.body = invitee;
+            const result = Object.assign({}, invitee);
+            if (newID) {
+                result.oldID = id;
+            }
+            this.body = result;
         } catch (err) {
             this.status = err.status || 500;
             this.body = {message: err.message};

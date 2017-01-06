@@ -107,8 +107,8 @@ function updateContact(event, invitee) {
     invitee.contact = event.target.value;
 }
 
-function updateID(id, invitee) {
-    invitee.id = event.target.value;
+function updateID(event, invitee) {
+    invitee.newID = event.target.value;
 }
 
 const IDEditor = ({invitee, isNew}) => {
