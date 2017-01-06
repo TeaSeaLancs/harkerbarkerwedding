@@ -9,7 +9,7 @@ import { locations, locationName } from '../util/data';
 const CountsForLocation = ({location, invitees}) => (
     <li>
         <span>{locationName(location)}</span>
-        <Avatar backgroundColor={colours.accepted} title="Accepted">
+        <Avatar backgroundColor={colours.accepted} title="Accepted" style={{fontSize: '12px', verticalAlign: 'top'}}>
             {countStateForLocation(invitees, location, 'accepted')}/{countForLocation(invitees, location)}
         </Avatar>
         <Avatar backgroundColor={colours.declined} title="Declined">{countStateForLocation(invitees, location, 'declined')}</Avatar>
