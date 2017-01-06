@@ -18,8 +18,30 @@
     margin: 0 0.25rem;
 }
 
+.dashboardCounts ul {
+    display: flex;
+    padding-left: 0;
+}
+
+.dashboardCounts ul li {
+    list-style: none;
+    color: white;
+    padding-right: 1rem;
+}
+
+.dashboardCounts ul li > span {
+    padding-right: 0.5rem;
+    font-size: 16px;
+}
+
 .dashboardAdd {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+    .dashboardCounts ul div[title="Declined"] {
+        display: none !important;
+    }
 }

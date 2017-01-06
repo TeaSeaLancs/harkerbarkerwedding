@@ -20,3 +20,5 @@ export const firstNames = invitee => {
 export const invitedTo = invitee => {
     return sentence(invitee.invitedTo.map(location => locations[location]));
 }
+
+export const locationName = location => locations[location] || "";

@@ -107,6 +107,24 @@ function updateContact(event, invitee) {
     invitee.contact = event.target.value;
 }
 
+function updateID(id, invitee) {
+    invitee.id = event.target.value;
+}
+
+const IDEditor = ({invitee, isNew}) => {
+    if (isNew) {
+        return null;
+    }
+    
+    return (<ListItem>
+        <TextField fullWidth={true}
+            defaultValue={invitee.id}
+            floatingLabelText="ID"
+            onChange={event => updateID(event, invitee)}>
+        </TextField>
+    </ListItem>);
+}
+
 class Editor extends Component {
     constructor(props) {
         super(props);
@@ -150,6 +168,7 @@ class Editor extends Component {
                     </ListItem>
                     <Subheader>Invited to</Subheader>
                     {invitedList(this, this.state.invitee)}
+                    <IDEditor invitee={this.state.invitee} isNew={this.state.isNew}></IDEditor>
                 </List>
             </Dialog>
         )
