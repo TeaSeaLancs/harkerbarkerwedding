@@ -47,7 +47,7 @@ const count = list => list.reduce((count, invitee) => {
 }, 0);
 
 const countForLocation = (list, location) => list.reduce((count, invitee) => {
-   const { invitedTo, people, inviteState } = invitee;
+   const { invitedTo, people, state: inviteState } = invitee;
     if (invitedTo.indexOf(location) > -1 && inviteState !== 'declined') {
         return (count + people.length);
     }
