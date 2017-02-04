@@ -98,18 +98,16 @@ class Welcome extends Component {
         const { people, locations, accept, decline, state, gif } = this.props;
         
         return (
-            <DocumentTitle title="The Harker/Barker Wedding">
-                <div className={styles.welcome}>
-                    <div className={styles.welcomeMessage}>
-                        <div className={styles.inviteMessage}>
-                            <div className={styles.invitePeople}>{firstNames(people)}</div>
-                            <div>Matt &amp; Rach would love you to come to their wedding celebrations!</div>
-                            <Locations locations={locations}></Locations>
-                        </div>
-                        <InviteResponse gif={gif} state={state} people={people} accept={accept} decline={decline}></InviteResponse>
+            <div className={styles.welcome}>
+                <div className={styles.welcomeMessage}>
+                    <div className={styles.inviteMessage}>
+                        <div className={styles.invitePeople}>{firstNames(people)}</div>
+                        <div>Matt &amp; Rach would love you to come to their wedding celebrations!</div>
+                        <Locations locations={locations}></Locations>
                     </div>
+                    <InviteResponse gif={gif} state={state} people={people} accept={accept} decline={decline}></InviteResponse>
                 </div>
-            </DocumentTitle>
+            </div>
         );
     }
 }
