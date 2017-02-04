@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute, IndexRedirect } from 'react-router'
+import { Route, IndexRoute, IndexRedirect } from 'react-router';
 
 import Dashboard from './components/dashboard';
 import Login from './components/login';
@@ -12,7 +12,7 @@ export default store => {
         }
         
         callback();
-    }
+    };
 
     return (
         <Route path="/">
@@ -22,5 +22,5 @@ export default store => {
                 <IndexRoute component={Dashboard}/>
             </Route>
         </Route>
-    )
+    );
 };

@@ -43,7 +43,7 @@ function userCheck(session) {
         session.user = {
             username: 'guest',
             guest: true
-        }
+        };
     }
 }
 
@@ -52,4 +52,4 @@ module.exports = {
 	encrypt,
     checkSession,
     userCheck
-}
+};

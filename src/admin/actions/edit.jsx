@@ -10,33 +10,33 @@ function blankInvitee() {
         invitedTo: [],
         people: [],
         comments: ""
-    }
+    };
 }
 
 export function createNewInvitee() {
     return {
         type: 'NEW_INVITEE',
         invitee: blankInvitee()
-    }
+    };
 }
 
 export function openInvitee(invitee) {
     return {
         type: 'OPEN_INVITEE',
         invitee
-    }
+    };
 }
 
 export function finishedEditing() {
     return {
         type: 'FINISHED_EDITING'
-    }
+    };
 }
 
 function savingInvitee() {
     return {
         type: 'SAVING_INVITEE'
-    }
+    };
 }
 
 function createInvitee(invitee) {
@@ -81,21 +81,21 @@ function updatedInvitee(invitee) {
     return {
         type: 'UPDATED_INVITEE',
         invitee
-    }
+    };
 }
 
 function deletedInvitee(invitee) {
     return {
         type: 'DELETED_INVITEE',
         invitee
-    }
+    };
 }
 
 function undidLastDeletion(invitee) {
     return {
         type: 'UNDID_DELETION',
         invitee
-    }
+    };
 }
 
 export function saveInvitee(invitee) {
@@ -113,11 +113,11 @@ export function saveInvitee(invitee) {
             console.log("Saving existing invitee", invitee);
             save = updateInvitee(invitee).then(invitee => {
                 dispatch(updatedInvitee(invitee));
-            })
+            });
         }
         
         return save;
-    }
+    };
 }
 
 export function deleteInvitee(invitee) {
@@ -125,7 +125,7 @@ export function deleteInvitee(invitee) {
         return del(invitee).then(() => {
             dispatch(deletedInvitee(invitee));
         });
-    }
+    };
 }
 
 export function undoLastDeletion() {
@@ -141,7 +141,7 @@ export function undoLastDeletion() {
                 dispatch(createdNewInvitee(invitee));
             });
         }
-    }
+    };
 }
 
 export function definitelyNotUndoingDeletion() {

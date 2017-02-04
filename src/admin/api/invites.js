@@ -85,4 +85,4 @@ module.exports = router => {
            this.app.emit('error', err, this);
        }
     });
-}
+};

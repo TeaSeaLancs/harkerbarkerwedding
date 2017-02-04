@@ -42,4 +42,4 @@ module.exports = router => {
 			this.status = 500;
 		}
 	});
-}
+};

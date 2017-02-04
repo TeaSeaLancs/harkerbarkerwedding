@@ -41,7 +41,7 @@ const loadInvite = id => dispatch => {
             console.error(err);
             dispatch(inviteDoesNotExist());
         });
-}
+};
 
 export const loadInviteIfNeeded = () => (dispatch, getState) => {
     const { invite: { id, loaded } } = getState();
@@ -50,7 +50,7 @@ export const loadInviteIfNeeded = () => (dispatch, getState) => {
         console.log("Invite not loaded, loading...");
         return dispatch(loadInvite(id));
     }
-}
+};
 
 const loadGif = () => (dispatch, getState) => {
     const { invite: { invite: { state } } } = getState();
@@ -64,7 +64,7 @@ const loadGif = () => (dispatch, getState) => {
                 dispatch(gotGif(url));
             });
     }
-}
+};
 
 export const loadGifIfNeeded = () => (dispatch, getState) => {
     const { invite: { invite, gif } } = getState();
@@ -90,11 +90,11 @@ export const acceptInvite = () => (dispatch, getState) => {
             } else {
                 return response.json();
             }
-        }).then(invite => {
+        }).then(() => {
             dispatch(acceptedInvite());
             dispatch(loadGif());
         });
-}
+};
 
 export const declineInvite = () => (dispatch, getState) => {
     const { invite: { id } } = getState();
@@ -110,8 +110,8 @@ export const declineInvite = () => (dispatch, getState) => {
             } else {
                 return response.json();
             }
-        }).then(invite => {
+        }).then(() => {
             dispatch(declinedInvite());
             dispatch(loadGif());
         });
-}
+};

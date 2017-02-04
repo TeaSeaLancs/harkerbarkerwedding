@@ -35,7 +35,7 @@ class Login extends Component {
                     </Paper>
                 </div>
             </DocumentTitle>
-        )
+        );
     }
     
     login(event) {
@@ -49,7 +49,7 @@ const mapStateToProps = state => {
         loggingIn: !!state.user.loggingIn,
         errorMessage: state.user.loginError
     };
-}
+};
 
 const mapDispatchToProps = dispatch => {
     
@@ -59,7 +59,7 @@ const mapDispatchToProps = dispatch => {
     
 	return {
 		login: doLogin
-	}
-}
+	};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

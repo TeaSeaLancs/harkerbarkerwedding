@@ -10,6 +10,6 @@ Object.assign(theme.palette, {
     primary2Color: deepPurple700,
     primary3Color: deepPurple50,
     accent1Color: amberA200
-})
+});
 
 export default theme;

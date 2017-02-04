@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import DocumentTitle from 'react-document-title';
-
 import styles from '../css/welcome.css';
-import { loadInviteIfNeeded, loadGifIfNeeded, acceptInvite, declineInvite } from '../actions/invite';
+import { acceptInvite, declineInvite } from '../actions/invite';
 import { firstNames } from '../util/data';
 
 import RaisedButton from 'material-ui/RaisedButton';
@@ -46,7 +44,7 @@ const InviteDetailsInformation = () => (
     <div className={styles.inviteDetails}>
         <div>We'll send out loads more information in a little while!</div>
     </div>
-)
+);
 
 const InviteResponse = ({state, gif, ...props}) => {
     if (state === 'pending') {
@@ -78,25 +76,20 @@ const InviteResponse = ({state, gif, ...props}) => {
     return null;
 };
 
-const NoInvite = props => (
-    <DocumentTitle title="The Harker/Barker Wedding">
-        <div className={styles.welcome}>
-            <div className={styles.welcomeMessage}>
-                <div className={styles.inviteMessage}>
-                    Hi there, we can't seem to find your invite to the Harker/Barker wedding.
-                </div>
-                <div className={styles.inviteDetails}>
-                    Please check your invite link, or ask Matt and/or Rachel about what's going on.
-                </div>
+const NoInvite = () => (
+    <div className={styles.welcome}>
+        <div className={styles.welcomeMessage}>
+            <div className={styles.inviteMessage}>
+                Hi there, we can't seem to find your invite to the Harker/Barker wedding.
+            </div>
+            <div className={styles.inviteDetails}>
+                Please check your invite link, or ask Matt and/or Rachel about what's going on.
             </div>
         </div>
-    </DocumentTitle>
+    </div>
 );
 
 class Welcome extends Component {
-    static needs() {
-        return [loadInviteIfNeeded, loadGifIfNeeded];
-    }
     render() {
         if (!this.props.exists) {
             return (<NoInvite></NoInvite>);
@@ -129,13 +122,13 @@ const mapStateToProps = state => {
     const { invite: { invite, gif, exists } } = state;
     
     return {...invite, exists, gif};
-}
+};
 
 const mapDispatchToProps = dispatch => {
     return {
         accept: () => dispatch(acceptInvite()),
         decline: () => dispatch(declineInvite())
     };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

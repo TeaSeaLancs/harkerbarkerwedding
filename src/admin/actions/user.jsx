@@ -10,14 +10,14 @@ const authFailure = () => {
     return {
         type: 'AUTH_FAILURE'
     };
-}
+};
 
 const loggedIn = session => {
     return {
         type: 'LOGGED_IN',
         session
-    }
-}
+    };
+};
 
 export function login(data) {
 	return dispatch => {
@@ -41,5 +41,5 @@ export function login(data) {
                 dispatch(loggedIn(data));
             })
             .catch(err => console.error("No", err));
-	}
+	};
 }

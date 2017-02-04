@@ -28,8 +28,8 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, {
                 lastDeleted: null,
                 showingUndo: false
-            })
+            });
         default:
             return state;
     }
-}
+};

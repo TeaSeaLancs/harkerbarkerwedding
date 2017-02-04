@@ -19,8 +19,8 @@ const getInviteID = req => {
             invite: null,
             id
         }
-    }
-}
+    };
+};
 
 const imageServer = serve({rootDir: path.join(__dirname, 'images'), rootPath: '/images'});
 
