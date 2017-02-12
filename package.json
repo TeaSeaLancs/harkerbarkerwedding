@@ -30,6 +30,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-1": "^6.13.0",
     "babel-register": "^6.11.6",
+    "bowser": "^1.6.0",
     "command-line-args": "^3.0.1",
     "css-loader": "^0.24.0",
     "css-modules-require-hook": "^4.0.2",

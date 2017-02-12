@@ -4,8 +4,31 @@
     right: 16px;
 }
 
+.infoareaSections {
+    columns: 1;
+}
+
+.infoareaSections > * {
+    break-inside: avoid-column;
+}
+
+.infoarea.nobreak .infoareaSections > * {
+    display: inline-block;
+    width: 100%;
+}
+
 @media screen and (max-width: 480px) {
     .infoareaTitle .infoareaDirections {
         position: static;
     }
+}
+
+@media screen and (min-width: 1024px) {
+    .infoareaSections {
+        columns: 2;
+    }
+}
+
+.infopoints {
+    line-height: 1.6em;
 }
