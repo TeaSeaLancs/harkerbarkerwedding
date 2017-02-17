@@ -40,15 +40,14 @@ export const Meal = () => {
     return (
         <InfoArea {...meal}>
             <CardText>
-                <Subheader>Meal pre-ordering</Subheader>
+                <Subheader>
+                    <span>Meal pre-ordering</span>
+                    <RaisedButton secondary={true} label="Download menu here" style={{lineHeight: 'normal', marginLeft: '1rem'}} href="https://docs.google.com/document/d/1nf1SaFUjxI9WeaFbdbcQJ52ZHZFw-qV2kPl-H8-B9z8/edit?usp=sharing" target="_blank"/>
+                </Subheader>
                 <CardText className={styles.infopoints}>
                     <div>
-                        <span>The menu for the reception can be found </span>
-                        <a href="https://docs.google.com/document/d/1nf1SaFUjxI9WeaFbdbcQJ52ZHZFw-qV2kPl-H8-B9z8/edit?usp=sharing">here.</a>
-                    </div>
-                    <div>
                         <span>Please make your choices for main meal and dessert, and send them to </span>
-                        <a href="mailto:mjbarker2310@gmail.com">mjbarker2310@gmail.com</a>
+                        <a href="mailto:mjbarker2310@gmail.com" target="_blank">mjbarker2310@gmail.com</a>
                         <span> before the 1st of March.</span>
                     </div>
                 </CardText>

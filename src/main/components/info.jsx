@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Paper from 'material-ui/Paper';
 
 import FAQ from './FAQ';
-import InfoArea from './InfoArea';
 import SouthParty from './SouthParty';
 import { Ceremony, Meal } from './April7th';
 

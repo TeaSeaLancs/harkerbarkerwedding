@@ -32,3 +32,21 @@
 .infopoints {
     line-height: 1.6em;
 }
+
+.stay-place {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.stay-place--mercure {
+    background-image: url('/images/mercure.jpg');
+}
+
+.stay-place--premier-inn {
+    background-image: url('/images/premierinn.jpg');
+}
+
+.stay-place--sopwell {
+    background-image: url('/images/sopwell.jpg');
+}
