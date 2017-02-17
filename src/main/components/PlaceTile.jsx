@@ -1,7 +1,7 @@
 import React from 'react';
 import { GridTile } from 'material-ui/GridList';
 
-import styles from '../css/info.css';
+import styles from '../css/info';
 
 export default ({place, ...props}) => {
     

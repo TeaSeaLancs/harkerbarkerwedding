@@ -3,7 +3,7 @@ import React from 'react';
 import Subheader from 'material-ui/Subheader';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
-import styles from '../css/info.css';
+import styles from '../css/info';
 
 export default () => (
     <Card className={styles.infoarea}>
@@ -17,7 +17,7 @@ export default () => (
                     <span>, as long as you're smart, you can be as wedding or non wedding as you like!</span>
                 </div>
                 <div>
-                    <span>Suits, dresses, formal jackets, etc, anything formal is good as long as you're there.</span>
+                    <span>Suits, dresses, formal jackets, hats, etc, anything formal is good as long as you're there.</span>
                 </div>
                 <div>
                     <span>For example, the groom won't be wearing a suit, but a lot of other people will!</span>
@@ -33,7 +33,7 @@ export default () => (
                     <span> the gift!</span>
                 </div>
                 <div>
-                    <span>However, if you are swayed by generosity, money or John Lewis vouchers are very kind</span>
+                    <span>However, if you are swayed by generosity, John Lewis vouchers are very kind.</span>
                 </div>
             </CardText>
         </CardText>

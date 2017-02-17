@@ -25,6 +25,7 @@ module.exports = router => {
                     state: invite.state,
                     people: invite.people,
                     comments: invite.comments,
+                    invitedTo: invite.invitedTo,
                     locations: mapPlacesToLocations(invite.invitedTo)
                 };
             }

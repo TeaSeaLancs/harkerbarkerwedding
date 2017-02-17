@@ -8,7 +8,7 @@ import Directions from 'material-ui/svg-icons/maps/directions';
 
 import bowser from 'bowser';
 
-import styles from '../css/info.css';
+import styles from '../css/info';
 
 const Timeline = ({timeline}) => (
     <List>
@@ -28,15 +28,15 @@ const DirectionsButton = ({destination, ...props}) => (
         icon={<Directions/>} 
         label="Get directions"
         primary={true}
-        href={`https://maps.google.com?saddr=Current+Location&daddr=${destination.replace(' ', '+')}`}
+        href={`https://maps.google.com?saddr=Current+Location&daddr=${destination.replace(/ /g, '+')}`}
         target="_blank"
         {...props}>
     </RaisedButton>
 );
 
-export default ({title, details, location, timeline, children}) => {
+export default ({title, details, type, location, timeline, children}) => {
     
-    const classes = [styles.infoarea];
+    const classes = [styles.infoarea, styles[`infoarea--${type}`]];
     if (bowser.firefox) {
         classes.push(styles.nobreak);
     }
