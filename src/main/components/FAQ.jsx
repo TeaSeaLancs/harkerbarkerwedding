@@ -4,9 +4,17 @@ import Subheader from 'material-ui/Subheader';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
 import styles from '../css/info';
+import { firstNames } from '../util/data';
 
-export default () => (
-    <Card className={styles.infoarea}>
+export default ({invite}) => (
+    <Card className={[styles.infoarea, styles['infoarea--welcome']].join(" ")}>
+        <div className={styles.heading}>
+            <h1>{firstNames(invite.people)}</h1>
+            <div className={styles.infopoints}>
+                <div>We're so thrilled you can come to the Harker/Barker wedding!</div>
+                <div>Here's everything you need to know about the day! Anything we've not mentioned? Give us a shout!</div>
+            </div>
+        </div>
         <CardTitle title="All about the day!"></CardTitle>
         <CardText>
             <Subheader>Dress code</Subheader>

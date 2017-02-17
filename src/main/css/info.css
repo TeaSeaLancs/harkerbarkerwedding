@@ -2,11 +2,20 @@
     text-align: center;
 }
 
+.heading h1 {
+    margin-top: 0;
+    padding-top: 0.67em;
+}
+
 .infoarea {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+.infoarea--welcome {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/welcome-unblurred-768.jpg');
 }
 
 .infoarea--trestle {
@@ -63,6 +72,21 @@
 .infopoints {
     line-height: 1.6em;
     margin-bottom: 0.5rem;
+}
+
+.spotify {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spotify > * {
+    width: 300px;
+    flex: none;
+}
+
+.spotify iframe {
+    margin-top: 0.5rem;
 }
 
 .stay-place {

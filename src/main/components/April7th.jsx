@@ -6,6 +6,11 @@ import { CardText } from 'material-ui/Card';
 import Subheader from 'material-ui/Subheader';
 import RaisedButton from 'material-ui/RaisedButton';
 import { GridList } from 'material-ui/GridList';
+import { List, ListItem } from 'material-ui/List';
+
+import CommunicationCall from 'material-ui/svg-icons/communication/call';
+
+import { primary } from '../../util/theme';
 
 import PlaceTile from './PlaceTile';
 
@@ -26,11 +31,25 @@ export const Ceremony = () => {
   
     return (
         <InfoArea {...ceremony}>
-            <Subheader>Places to stay</Subheader>
-            <GridList>
-                <PlaceTile title="D'Parys, Bedford" place="dparys" href="http://dparys.co.uk/"/>
-                <PlaceTile title="Premier Inn Priory Marina" place="premier-inn-bedford" href="http://www.premierinn.com/gb/en/hotels/england/bedfordshire/bedford/bedford-priory-marina.html"/>
-            </GridList>
+            <div>
+                <Subheader style={{fontSize: '22px'}}>Getting here</Subheader>
+                <CardText className={styles.infopoints}>
+                    <h4>Train</h4>
+                    <div>Once you're in London, the journey is easy. From St. Pancras train station, Thameslink and East Midland trains run to Bedford on a regular basis.</div>
+                    <h4>Taxi</h4>
+                    <List>
+                        <ListItem primaryText="A1 Taxis" secondaryText="01234 364444" leftIcon={<CommunicationCall color={primary}/>} href="tel:+441234364444"/>
+                        <ListItem primaryText="Anglia Taxis" secondaryText="01234 320032" leftIcon={<CommunicationCall color={primary}/>} href="tel:++441234320032"/>
+                    </List>
+                </CardText>
+            </div>
+            <div>
+                <Subheader style={{fontSize: '22px'}}>Places to stay</Subheader>
+                <GridList>
+                    <PlaceTile title="D'Parys, Bedford" place="dparys" href="http://dparys.co.uk/"/>
+                    <PlaceTile title="Premier Inn Priory Marina" place="premier-inn-bedford" href="http://www.premierinn.com/gb/en/hotels/england/bedfordshire/bedford/bedford-priory-marina.html"/>
+                </GridList>
+            </div>
         </InfoArea>
     );
 };
@@ -43,7 +62,7 @@ export const Meal = () => {
         timeline: [
             {description: "Arrive and grab a drink", time: "2PM"},
             {description: "Food!", time: "2.30PM"},
-            {description: "The party continues!", time: "5.00PM"}
+            {description: "More drinks in the bar!", time: "5.00PM"}
         ],
         location: "The Park Pub & Kitchen, Kimbolton Road, Bedford, MK40 2PF"
     };
