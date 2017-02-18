@@ -30,19 +30,12 @@ const InviteButtons = ({people, accept, decline}) => {
     );
 };
 
-const InviteMessage = ({message, gif, includeDetails}) => (
+const InviteMessage = ({message, gif}) => (
     <div>
         <div className={styles.inviteResponseMessage}>{message}</div>
-        {includeDetails ? <InviteDetailsInformation></InviteDetailsInformation> : null}
         <div className={styles.inviteGif}>
             <img src={gif}></img>
         </div>
-    </div>
-);
-
-const InviteDetailsInformation = () => (
-    <div className={styles.inviteDetails}>
-        <div>We'll send out loads more information in a little while!</div>
     </div>
 );
 
@@ -51,12 +44,10 @@ const InviteResponse = ({state, gif, ...props}) => {
         return (
             <div>
                 <div className={styles.inviteScreen}>
-                    <InviteDetailsInformation></InviteDetailsInformation>
-                    <div>Already made up your mind? Let us know!</div>
+                    <div>Can you make it? Let us know!</div>
                     <InviteButtons {...props}></InviteButtons>
                 </div>
                 <div className={styles.invitePrint}>
-                    <InviteDetailsInformation></InviteDetailsInformation>
                     <span className={styles.inviteAddress}>
                         If you can come, please RSVP to Flat 1, St. James' Court, Park View Close, St. Albans, Hertfordshire, AL1 5TL.
                     </span>
@@ -66,7 +57,7 @@ const InviteResponse = ({state, gif, ...props}) => {
     }
     
     if (state === 'accepted') {
-        return (<InviteMessage message={`You're coming! Fantastic!`} gif={gif} includeDetails={true}></InviteMessage>);
+        return (<InviteMessage message={`You're coming! Fantastic!`} gif={gif}></InviteMessage>);
     }
     
     if (state === 'declined') {
@@ -89,20 +80,28 @@ const NoInvite = () => (
     </div>
 );
 
+const InviteText = ({invitedTo}) => {
+    if (invitedTo.length === 1 && invitedTo[0] === 'north') {
+        return (<span>Judith &amp; Adrian would love you to come to Matt &amp; Rach's wedding celebrations!</span>);
+    }
+    
+    return (<div>Matt &amp; Rach would love you to come to their wedding celebrations!</div>);
+};
+
 class Welcome extends Component {
     render() {
         if (!this.props.exists) {
             return (<NoInvite></NoInvite>);
         }
         
-        const { people, locations, accept, decline, state, gif } = this.props;
+        const { people, locations, invitedTo, accept, decline, state, gif } = this.props;
         
         return (
             <div className={styles.welcome}>
                 <div className={styles.welcomeMessage}>
                     <div className={styles.inviteMessage}>
                         <div className={styles.invitePeople}>{firstNames(people)}</div>
-                        <div>Matt &amp; Rach would love you to come to their wedding celebrations!</div>
+                        <InviteText invitedTo={invitedTo}></InviteText>
                         <Locations locations={locations}></Locations>
                     </div>
                     <InviteResponse gif={gif} state={state} people={people} accept={accept} decline={decline}></InviteResponse>
