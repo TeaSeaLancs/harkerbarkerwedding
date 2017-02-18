@@ -14,7 +14,7 @@ const CountsForLocation = ({location, invitees}) => (
         </Avatar>
         <Avatar backgroundColor={colours.declined} title="Declined">{countStateForLocation(invitees, location, 'declined')}</Avatar>
     </li>
-)
+);
 
 const LocationCounts = ({invitees}) => {
     const locationCounts = [];
@@ -28,7 +28,7 @@ const LocationCounts = ({invitees}) => {
             {locationCounts}
         </ul>
     );
-}
+};
 
 class InviteeCounts extends Component {
     render() {
@@ -38,7 +38,7 @@ class InviteeCounts extends Component {
                 <Avatar backgroundColor={colours.total} title="Total">{count(invitees)}</Avatar>
                 <LocationCounts invitees={invitees}></LocationCounts>
             </div>
-        )
+        );
     }
 }
 

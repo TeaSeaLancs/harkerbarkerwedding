@@ -8,4 +8,4 @@ export default url => {
     }
     
     return `${process.env.MAIN_URL}${url}`;
-}
+};

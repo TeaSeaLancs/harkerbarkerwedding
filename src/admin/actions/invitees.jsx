@@ -4,14 +4,14 @@ const loadingInvitees = () => {
     return {
         type: 'LOADING_INVITEES'
     };
-}
+};
 
 const loadedInvitees = invitees => {
     return {
         type: 'LOADED_INVITEES',
         invitees
     };
-}
+};
 
 function doLoad(dispatch) {
     dispatch(loadingInvitees());
@@ -37,5 +37,5 @@ export function loadInviteesIfRequired() {
             console.log("Invitees haven't been loaded, loading...");
             return doLoad(dispatch);
         }
-    }
+    };
 }

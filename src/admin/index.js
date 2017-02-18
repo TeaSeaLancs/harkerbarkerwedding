@@ -34,9 +34,9 @@ const getInitialState = req => {
             user: {
                 session: session.user
             }
-        }
+        };
     }
-}
+};
 
 const render = Render('admin', routes, getInitialState, reducers);
 module.exports = subdomain('admin', compose([session, check, koaFetch, api.routes(), render]));

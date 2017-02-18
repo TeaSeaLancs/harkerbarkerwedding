@@ -4,11 +4,11 @@ const LOCATIONS = {
     ceremony: `The Ceremony @ St Mary's church, Bedford, April 7th 2017`,
     south: `The Wedding Party @ Trestle Arts Base, St Albans, April 8th 2017`,
     north: `The Wedding Party @ Skitby House, near Carlisle, April 15th 2017`
-}
+};
 
 const mapPlacesToLocations = places => {
     return places.map(place => LOCATIONS[place]);
-}
+};
 
 module.exports = router => {
     router.get("/invite/:id", function*() {
@@ -25,8 +25,9 @@ module.exports = router => {
                     state: invite.state,
                     people: invite.people,
                     comments: invite.comments,
+                    invitedTo: invite.invitedTo,
                     locations: mapPlacesToLocations(invite.invitedTo)
-                }
+                };
             }
         } catch (err) {
             this.status = err.status || 500;
@@ -45,7 +46,7 @@ module.exports = router => {
                 throw new Error("No such invite exists");
             } else {
                 const update = {'$set': { state: 'accepted' } };
-                const success = yield db.collection('invitees').updateOne({id}, update);
+                yield db.collection('invitees').updateOne({id}, update);
                 
                 this.body = {
                     success: true
@@ -68,7 +69,7 @@ module.exports = router => {
                 throw new Error("No such invite exists");
             } else {
                 const update = {'$set': { state: 'declined' } };
-                const success = yield db.collection('invitees').updateOne({id}, update);
+                yield db.collection('invitees').updateOne({id}, update);
                 
                 this.body = {
                     success: true
@@ -80,4 +81,4 @@ module.exports = router => {
             this.app.emit('error', err, this);
         }
     });
-}
+};

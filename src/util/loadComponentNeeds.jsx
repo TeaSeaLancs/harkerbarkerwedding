@@ -13,7 +13,7 @@ const loadComponentNeeds = (store, components) => {
     }, []);
     
     return Promise.all(needs.map(need => store.dispatch(need())));
-}
+};
 
 export default loadComponentNeeds;
 
@@ -22,6 +22,6 @@ export function createAndLoadFor(store) {
         if (Component.needs) {
             loadComponentNeeds(store, Component);
         }
-        return <Component {...props} />
-    }
+        return <Component {...props} />;
+    };
 }

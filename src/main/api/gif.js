@@ -1,7 +1,5 @@
-const mongo = require('../../db/mongo').default;
-
 const get = keyword => {
-    const url = `http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${keyword}&rating=y`
+    const url = `http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${keyword}&rating=y`;
     
     return fetch(url)
         .then(response => response.json())
@@ -18,4 +16,4 @@ module.exports = router => {
         
         this.body = {url};
     });
-}
+};

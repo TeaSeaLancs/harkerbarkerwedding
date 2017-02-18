@@ -1,14 +1,13 @@
 import React from 'react';
-import { Route, IndexRedirect } from 'react-router'
+import { Route, IndexRedirect } from 'react-router';
 
-import Welcome from './components/welcome';
+import BigWelcome from './components/bigWelcome';
 
-export default store => {
+export default () => {
     return (
         <Route path="/">
             <IndexRedirect to="welcome"/>
-            <Route path="welcome" component={Welcome}/>
-            <Route path="welcome/:id" component={Welcome}/>
+            <Route path="welcome(/:id)" component={BigWelcome}></Route>
         </Route>
-    )
+    );
 };

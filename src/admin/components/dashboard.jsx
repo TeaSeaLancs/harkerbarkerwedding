@@ -59,7 +59,7 @@ class Dashboard extends Component {
                     {editorIfRequired(this)}
                 </div>
             </DocumentTitle>
-        )
+        );
     }
 }
 
@@ -72,7 +72,7 @@ const mapStateToProps = state => {
         editInvitee: currentInvitee,
         showingUndo: !!lastDeleted
     };
-}
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -84,6 +84,6 @@ const mapDispatchToProps = dispatch => {
         undoDelete: () => dispatch(undoLastDeletion()),
         notUndoingDeletion: () => dispatch(definitelyNotUndoingDeletion())
     };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

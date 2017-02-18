@@ -35,5 +35,5 @@ module.exports = (name, getRoutes, getInitialState, reducers) => {
         }
         
         yield next;
-    }
-}
+    };
+};

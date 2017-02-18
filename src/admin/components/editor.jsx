@@ -27,7 +27,7 @@ function editableIconButton(component, invitee, person) {
             <IconButton tooltip="Remove" onTouchTap={() => removePerson(component, invitee, person)}>
                 <Clear></Clear>
             </IconButton>
-        )
+        );
     }
 }
 
@@ -88,7 +88,7 @@ function invitedList(component, invitee) {
     for (let name in locations) {
         entries.push(locationEntry(name, locations[name], component, invitee));
     }
-    return (<ListItem className={styles.locationBox}>{entries}</ListItem>)
+    return (<ListItem className={styles.locationBox}>{entries}</ListItem>);
 }
 
 function clone(invitee) {
@@ -123,7 +123,7 @@ const IDEditor = ({invitee, isNew}) => {
             onChange={event => updateID(event, invitee)}>
         </TextField>
     </ListItem>);
-}
+};
 
 class Editor extends Component {
     constructor(props) {
@@ -132,7 +132,7 @@ class Editor extends Component {
             originalInvitee: props.invitee,
             invitee: clone(props.invitee),
             isNew: !props.invitee.id
-        }
+        };
     }
     render() {
         const actions = [
@@ -171,7 +171,7 @@ class Editor extends Component {
                     <IDEditor invitee={this.state.invitee} isNew={this.state.isNew}></IDEditor>
                 </List>
             </Dialog>
-        )
+        );
     }
     
     title() {
@@ -203,7 +203,7 @@ class Editor extends Component {
         }).catch(err => {
             // TODO HANDLE ERRORS!
             console.log(err);
-        })
+        });
     }
 }
 

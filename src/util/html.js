@@ -6,6 +6,7 @@ module.exports = (name, title, body, state) => `
     <head>
         <title>${title}</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
         <style type="text/css">${css.join("\n\n")}</style>
     </head>
     <body>

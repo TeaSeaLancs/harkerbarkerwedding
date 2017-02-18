@@ -1,0 +1,128 @@
+.heading {
+    text-align: center;
+}
+
+.heading h1 {
+    margin-top: 0;
+    padding-top: 0.67em;
+}
+
+.infoarea {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.infoarea--welcome {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/welcome-unblurred-768.jpg');
+}
+
+.infoarea--trestle {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/trestle-768.jpg');
+}
+
+.infoarea--church {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/church-768.jpg');
+}
+
+.infoarea--pub {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/pub-768.jpg');
+}
+
+.infoarea--skitby {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/skitby-720.jpg');
+}
+
+.infoareaTitle {
+    background-color: rgba(103, 58, 183, 0.15);
+}
+
+.infoareaTitle .infoareaDirections {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.infoareaSections {
+    columns: 1;
+}
+
+.infoareaSections > * {
+    break-inside: avoid-column;
+}
+
+.infoarea.nobreak .infoareaSections > * {
+    display: inline-block;
+    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    .infoareaTitle .infoareaDirections {
+        position: static;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .infoareaSections {
+        columns: 2;
+    }
+}
+
+.infopoints {
+    line-height: 1.6em;
+    margin-bottom: 0.5rem;
+}
+
+.spotify {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spotify > * {
+    width: 300px;
+    flex: none;
+}
+
+.spotify iframe {
+    margin-top: 0.5rem;
+}
+
+.stay-place {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.stay-place--dparys {
+    background-image: url('/images/dparys.jpg');
+}
+
+.stay-place--mercure {
+    background-image: url('/images/mercure.jpg');
+}
+
+.stay-place--premier-inn {
+    background-image: url('/images/premierinn.jpg');
+}
+
+.stay-place--premier-inn-bedford {
+    background-image: url('/images/premierinn-bedford.jpg');
+}
+
+.stay-place--premier-inn-carlisle {
+    background-image: url('/images/premierinn-carlisle.jpg');
+}
+
+.stay-place--clarion {
+    background-image: url('/images/clarion.jpg');
+}
+
+.stay-place--sopwell {
+    background-image: url('/images/sopwell.jpg');
+}
+
+.stay-place--steadings {
+    background-image: url('/images/steadings.jpg');
+}

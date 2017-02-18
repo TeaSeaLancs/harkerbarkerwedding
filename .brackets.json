@@ -1,7 +1,7 @@
 {
     "language": {
         "jsx": {
-            "linting.prefer": ["ESLint"]
+            "linting.prefer": ["eslint"]
         },
         "javascript": {
             "linting.prefer": ["ESLint"],
