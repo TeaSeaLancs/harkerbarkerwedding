@@ -41,6 +41,10 @@ export default ({title, details, type, location, timeline, children}) => {
         classes.push(styles.nobreak);
     }
     
+    if (bowser.ios && bowser.safari) {
+        classes.push(styles.nofixed);
+    }
+    
     return (
         <Card className={classes.join(" ")}>
             <CardTitle title={title} subtitle={details} className={styles.infoareaTitle}>

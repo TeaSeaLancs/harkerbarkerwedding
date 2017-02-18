@@ -14,23 +14,27 @@
     background-size: cover;
 }
 
-.infoarea--welcome {
+.infoarea.nofixed {
+    background-attachment: scroll;
+}
+
+.infoarea.infoarea--welcome {
     background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/welcome-unblurred-768.jpg');
 }
 
-.infoarea--trestle {
+.infoarea.infoarea--trestle {
     background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/trestle-768.jpg');
 }
 
-.infoarea--church {
+.infoarea.infoarea--church {
     background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/church-768.jpg');
 }
 
-.infoarea--pub {
+.infoarea.infoarea--pub {
     background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/pub-768.jpg');
 }
 
-.infoarea--skitby {
+.infoarea.infoarea--skitby {
     background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/skitby-720.jpg');
 }
 
