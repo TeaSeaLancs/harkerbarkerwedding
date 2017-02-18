@@ -32,7 +32,7 @@ export default () => {
                 <Subheader style={{fontSize: '22px'}}>Getting here</Subheader>
                 <CardText className={styles.infopoints}>    
                     <h4>Train</h4>
-                    <div></div>
+                    <div>Carlisle is reachable by train from the Virgin West Coast trains when coming up/down, or via trains from Newcastle</div>
                     <h4>Bus?</h4>
                     <div>If there's enough demand, a bus can be made available. If you would like a bus to/from the party, <a href="tel:+4412285769333">contact Judith &amp; Adrian on 01228 576933</a></div>
                     <h4>Car</h4>
