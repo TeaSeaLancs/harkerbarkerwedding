@@ -39,7 +39,7 @@ export default () => {
                     <div>There's plenty of parking available at the venue itself!</div>
                     <h4>Taxi</h4>
                     <List>
-                        <ListItem primaryText="Radio Taxis" secondaryText="01228 527575" leftIcon={<CommunicationCall color={primary}/>} href="tel++441228527575"/>
+                        <ListItem primaryText="Radio Taxis" secondaryText="01228 527575" leftIcon={<CommunicationCall color={primary}/>} href="tel:++441228527575"/>
                         <ListItem primaryText="AAA Taxis" secondaryText="01228 808777" leftIcon={<CommunicationCall color={primary}/>} href="tel:++441228808777"/>
                     </List>
                 </CardText>
