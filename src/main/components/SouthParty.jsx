@@ -72,8 +72,9 @@ export default () => {
                 <Subheader style={{fontSize: '22px'}}>Music!</Subheader>
                 <CardText className={styles.infopoints}>
                     <div>You want music? We all want music! See what's been suggested for the playlist so far!</div>
+                    <div>Want to add your own? The playlist is collaborative, so open the playlist in the Spotify App and add tracks to it!</div>
                     <div className={styles.spotify}>
-                        <RaisedButton secondary={true} label="Add your own tracks" href="https://open.spotify.com/user/thundercloud/playlist/6VHvYP5LQ8XfDBrJ06Mpdr" target="_blank"/>
+                        <RaisedButton secondary={true} label="Open in Spotify" href="https://open.spotify.com/user/thundercloud/playlist/6VHvYP5LQ8XfDBrJ06Mpdr" target="_blank"/>
                         <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Athundercloud%3Aplaylist%3A6VHvYP5LQ8XfDBrJ06Mpdr&theme=white"
                             width="300" height="380" style={{border: 'none'}}></iframe>
                     </div>
