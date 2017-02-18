@@ -58,7 +58,7 @@ export const Meal = () => {
     const meal = {
         title: "The Wedding Meal",
         type: "pub",
-        details: "The Park, Bedford, April 7th 2017",
+        details: "The Park Pub & Kitchen, Kimbolton Road, Bedford, April 7th 2017",
         timeline: [
             {description: "Arrive and grab a drink", time: "2PM"},
             {description: "Food!", time: "2.30PM"},
