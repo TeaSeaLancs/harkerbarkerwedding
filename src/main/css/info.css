@@ -111,10 +111,18 @@
     background-image: url('/images/premierinn-bedford.jpg');
 }
 
+.stay-place--premier-inn-carlisle {
+    background-image: url('/images/premierinn-carlisle.jpg');
+}
+
 .stay-place--clarion {
     background-image: url('/images/clarion.jpg');
 }
 
 .stay-place--sopwell {
     background-image: url('/images/sopwell.jpg');
+}
+
+.stay-place--steadings {
+    background-image: url('/images/steadings.jpg');
 }

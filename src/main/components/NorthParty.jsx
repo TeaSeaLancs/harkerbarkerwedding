@@ -39,18 +39,16 @@ export default () => {
                     <div>There's plenty of parking available at the venue itself!</div>
                     <h4>Taxi</h4>
                     <List>
-                        <ListItem primaryText="" secondaryText="" leftIcon={<CommunicationCall color={primary}/>} href="tel:"/>
-                        <ListItem primaryText="" secondaryText="" leftIcon={<CommunicationCall color={primary}/>} href="tel:"/>
+                        <ListItem primaryText="Radio Taxis" secondaryText="01228 527575" leftIcon={<CommunicationCall color={primary}/>} href="tel++441228527575"/>
+                        <ListItem primaryText="AAA Taxis" secondaryText="01228 808777" leftIcon={<CommunicationCall color={primary}/>} href="tel:++441228808777"/>
                     </List>
                 </CardText>
             </div>
             <div>
                 <Subheader style={{fontSize: '22px'}}>Places to stay</Subheader>
                 <GridList>
-                    <PlaceTile title="Mercure Noke" place="mercure" href="http://www.mercure.com/gb/hotel-A0I1-mercure-st-albans-noke-hotel/events.shtml"/>
-                    <PlaceTile title="Premier Inn" place="premier-inn" href="http://www.premierinn.com/gb/en/hotels/england/hertfordshire/st-albans/st-albans-city-centre.html"/>
-                    <PlaceTile title="Clarion Hotel" place="clarion" href="http://www.stalbanshotel.co.uk/"/>
-                    <PlaceTile title="Sopwell House" place="sopwell" href="http://sopwellhouse.co.uk/"/>
+                    <PlaceTile title="Premier Inn" place="premier-inn-carlisle" href="http://www.premierinn.com/gb/en/hotels/england/cumbria/carlisle/carlisle-central-north.html"/>
+                    <PlaceTile title="The Steadings" place="steadings" href="http://www.thesteadings.co.uk/"/>
                 </GridList>
             </div>
         </InfoArea>
