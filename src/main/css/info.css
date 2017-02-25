@@ -67,7 +67,7 @@
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
     .infoareaSections {
         columns: 2;
     }
@@ -129,4 +129,14 @@
 
 .stay-place--steadings {
     background-image: url('/images/steadings.jpg');
+}
+
+@media print {
+    [data-no-print] {
+        display: none !important;
+    }
+    
+    .infoareaDirections {
+        display: none !important;
+    }
 }

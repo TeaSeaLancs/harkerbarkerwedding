@@ -71,7 +71,7 @@ export const Meal = () => {
         <InfoArea {...meal}>
             <Subheader>
                 <span>Meal pre-ordering</span>
-                <RaisedButton secondary={true} label="Download menu here" style={{lineHeight: 'normal', marginLeft: '1rem'}} href="https://docs.google.com/document/d/1nf1SaFUjxI9WeaFbdbcQJ52ZHZFw-qV2kPl-H8-B9z8/edit?usp=sharing" target="_blank"/>
+                <RaisedButton data-no-print secondary={true} label="Download menu here" style={{lineHeight: 'normal', marginLeft: '1rem'}} href="https://docs.google.com/document/d/1nf1SaFUjxI9WeaFbdbcQJ52ZHZFw-qV2kPl-H8-B9z8/edit?usp=sharing" target="_blank"/>
             </Subheader>
             <CardText className={styles.infopoints}>
                 <div>

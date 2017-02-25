@@ -43,7 +43,7 @@ export default () => {
                     <div>If you are driving to the party, then setting your satnav to use the postcode <strong>AL4 0FJ</strong> will take you to the overflow car park</div>
                     <h4>Taxi</h4>
                     <List>
-                        <ListItem primaryText="Get an uber (Requires app)" leftIcon={<UberIcon color="black"/>}
+                        <ListItem data-no-print primaryText="Get an uber (Requires app)" leftIcon={<UberIcon color="black"/>}
                         href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Trestle%20Arts%20Base%2C%20Russet%20Drive%2C%20St%20Albans%2C%20AL4%200JQ" target="_blank"/>
                         <ListItem primaryText="Goldline taxis" secondaryText="01727 833333" leftIcon={<CommunicationCall color={primary}/>} href="tel:+441727833333"/>
                         <ListItem primaryText="A* Taxis" secondaryText="01727 867777" leftIcon={<CommunicationCall color={primary}/>} href="tel:+441727867777"/>
@@ -68,7 +68,7 @@ export default () => {
                     <div>There is no exact menu yet, but it will contain plenty of meat, fish and vegetarian options, so rest assured you'll be catered for!</div>
                 </CardText>
             </div>
-            <div>
+            <div data-no-print>
                 <Subheader style={{fontSize: '22px'}}>Music!</Subheader>
                 <CardText className={styles.infopoints}>
                     <div>You want music? We all want music! See what's been suggested for the playlist so far!</div>
