@@ -18,6 +18,12 @@
     background-attachment: scroll;
 }
 
+@media print {
+    .infoarea {
+        background-attachment: scroll;
+    }
+}
+
 .infoarea.infoarea--welcome {
     background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/images/welcome-unblurred-768.jpg');
 }
@@ -67,7 +73,7 @@
     }
 }
 
-@media (min-width: 1024px) {
+@media print, screen and (min-width: 1024px) {
     .infoareaSections {
         columns: 2;
     }
